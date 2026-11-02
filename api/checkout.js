@@ -7,8 +7,9 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 export async function POST(request) {
   const origin = siteOrigin(request);
 
-  const lineItem = process.env.STRIPE_PRICE_ID
-    ? { price: process.env.STRIPE_PRICE_ID, quantity: 1 }
+  const priceId = process.env.STRIPE_PRICE_ID || PRODUCT.stripePriceId;
+  const lineItem = priceId
+    ? { price: priceId, quantity: 1 }
     : {
         quantity: 1,
         price_data: {

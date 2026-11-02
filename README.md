@@ -22,6 +22,6 @@ api/_product.js                     product name, price ($27), access window (14
    | `STRIPE_SECRET_KEY` | `sk_live_...` (use `sk_test_...` first to test) |
    | `PDF_BLOB_PATHNAME` | the pathname from step 3, e.g. `protocol-001/30-day-blackout-playbook.pdf` |
    | `SITE_URL` | optional, e.g. `https://sonderprotocol.com` |
-   | `STRIPE_PRICE_ID` | optional; if unset, checkout charges $27 inline |
+   | `STRIPE_PRICE_ID` | optional; overrides the live price ID in `api/_product.js` |
 5. **Stripe:** Settings → Customer emails → turn on *Successful payments* so buyers get a receipt.
 6. Redeploy, then run one test purchase with card `4242 4242 4242 4242` while on the test key.
