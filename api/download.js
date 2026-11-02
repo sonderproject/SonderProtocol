@@ -1,5 +1,5 @@
 import Stripe from "stripe";
-import { issueSignedToken, presignUrl } from "@vercel/blob";
+import { issueSignedToken, presignUrl, list } from "@vercel/blob";
 import { PRODUCT, siteOrigin } from "./_product.js";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
@@ -26,13 +26,12 @@ export async function GET(request) {
   const ageMs = Date.now() - session.created * 1000;
   if (ageMs > PRODUCT.accessDays * 24 * 60 * 60 * 1000) return deny("expired");
 
-  const pathname = process.env.PDF_BLOB_PATHNAME;
-  if (!pathname) {
-    console.error("download_error", "PDF_BLOB_PATHNAME not set");
-    return deny("unavailable");
-  }
-
   try {
+    const pathname = await findPdfPathname();
+    if (!pathname) {
+      console.error("download_error", "no PDF found in Blob store");
+      return deny("unavailable");
+    }
     const validUntil = Date.now() + LINK_TTL_MS;
     const token = await issueSignedToken({ pathname, operations: ["get"], validUntil });
     const { presignedUrl } = await presignUrl(token, {
@@ -49,4 +48,17 @@ export async function GET(request) {
     console.error("download_error", err?.message);
     return deny("unavailable");
   }
+}
+
+// Uses PDF_BLOB_PATHNAME if set; otherwise the first .pdf in the connected Blob store.
+async function findPdfPathname() {
+  if (process.env.PDF_BLOB_PATHNAME) return process.env.PDF_BLOB_PATHNAME;
+  let cursor;
+  do {
+    const page = await list({ limit: 1000, cursor });
+    const pdf = page.blobs.find((b) => b.pathname.toLowerCase().endsWith(".pdf"));
+    if (pdf) return pdf.pathname;
+    cursor = page.hasMore ? page.cursor : undefined;
+  } while (cursor);
+  return null;
 }
