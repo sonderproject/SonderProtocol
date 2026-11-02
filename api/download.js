@@ -20,7 +20,10 @@ export async function GET(request) {
     return deny("invalid");
   }
 
-  if (session.payment_status !== "paid" || session.metadata?.product !== PRODUCT.id) {
+  // "no_payment_required" = order fully covered by a 100%-off promotion code.
+  const settled = session.status === "complete" &&
+    (session.payment_status === "paid" || session.payment_status === "no_payment_required");
+  if (!settled || session.metadata?.product !== PRODUCT.id) {
     return deny("unpaid");
   }
   const ageMs = Date.now() - session.created * 1000;

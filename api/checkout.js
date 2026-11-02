@@ -24,6 +24,7 @@ export async function POST(request) {
       mode: "payment",
       line_items: [lineItem],
       metadata: { product: PRODUCT.id },
+      allow_promotion_codes: true,
       success_url: `${origin}/success.html?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/#buy`,
     });
