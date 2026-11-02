@@ -53,6 +53,22 @@
     reveals.forEach((el) => el.classList.add("is-in"));
   }
 
+  // --- Sticky buy bar: show after the hero, hide at the final CTA ---
+  const buybar = document.querySelector("[data-buybar]");
+  const hero = document.querySelector("[data-hero]");
+  const finalCta = document.getElementById("buy");
+  if (buybar && hero && finalCta && "IntersectionObserver" in window) {
+    const seen = { hero: true, cta: false };
+    const update = () => {
+      const show = !seen.hero && !seen.cta;
+      buybar.classList.toggle("is-visible", show);
+      buybar.setAttribute("aria-hidden", String(!show));
+      buybar.querySelector("button").tabIndex = show ? 0 : -1;
+    };
+    new IntersectionObserver(([e]) => { seen.hero = e.isIntersecting; update(); }).observe(hero);
+    new IntersectionObserver(([e]) => { seen.cta = e.isIntersecting; update(); }).observe(finalCta);
+  }
+
   // --- Checkout error notice (set by /api/checkout on failure) ---
   const checkoutMsg = document.querySelector("[data-checkout-msg]");
   if (checkoutMsg && new URLSearchParams(location.search).get("checkout") === "error") {

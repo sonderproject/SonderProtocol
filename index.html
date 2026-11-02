@@ -3,16 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sonder Protocol — Modern Preparedness for an Unstable World</title>
-  <meta name="description" content="Sonder Protocol builds clear, field-tested preparedness systems for modern households. Blackouts, grid failure, disasters, shortages — be ready before the crisis." />
+  <title>The 30-Day Blackout Playbook — Sonder Protocol</title>
+  <meta name="description" content="Protocol 001: The 30-Day Blackout Playbook. A household field manual and printable worksheets for when the power goes out. Instant PDF download, $27." />
   <meta name="theme-color" content="#06080a" />
-  <meta property="og:title" content="Sonder Protocol — Resilience begins before the crisis." />
-  <meta property="og:description" content="Preparedness intelligence and systems for everyday people." />
-  <meta property="og:type" content="website" />
+  <meta property="og:title" content="The 30-Day Blackout Playbook — Sonder Protocol" />
+  <meta property="og:description" content="When the power goes out, know exactly what to do. Household field manual + printable worksheets. $27 instant PDF." />
+  <meta property="og:type" content="product" />
+  <meta property="og:image" content="assets/img/protocol-001-mockup.jpg" />
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="assets/img/protocol-001-mockup.webp" type="image/webp" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
@@ -22,7 +24,6 @@
   <div class="statusbar" role="status">
     <div class="container statusbar__inner">
       <span class="statusbar__item"><span class="dot dot--orange pulse"></span>STATUS: <strong class="t-orange">ELEVATED</strong></span>
-      <span class="statusbar__item hide-sm">RISK MONITORING: <strong class="t-teal">ACTIVE</strong></span>
       <span class="statusbar__item hide-sm">PROTOCOL 001: <strong class="t-teal">AVAILABLE NOW</strong></span>
       <span class="statusbar__item statusbar__clock" data-clock>UTC --:--:--</span>
     </div>
@@ -40,12 +41,11 @@
         <span class="brand__name">SONDER<span class="brand__sep">/</span>PROTOCOL</span>
       </a>
       <nav class="nav__links" aria-label="Primary">
-        <a href="#moment">The Moment</a>
-        <a href="#systems">What We Do</a>
-        <a href="#protocols">Protocols</a>
-        <a href="#trust">Standards</a>
+        <a href="#inside">What's Inside</a>
+        <a href="#how">How It Works</a>
+        <a href="#faq">FAQ</a>
       </nav>
-      <a href="#buy" class="btn btn--sm btn--ghost nav__cta">Get Protocol 001</a>
+      <a href="#buy" class="btn btn--sm btn--primary nav__cta">Get It · $27</a>
       <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle>
         <span></span><span></span>
       </button>
@@ -54,311 +54,170 @@
 
   <main id="main">
 
-    <!-- ============ 1. HERO ============ -->
-    <section class="hero" id="top">
+    <!-- ============ HERO: THE PRODUCT ============ -->
+    <section class="hero hero--product" id="top" data-hero>
       <div class="hero__grid" aria-hidden="true"></div>
       <div class="hero__noise" aria-hidden="true"></div>
       <div class="hero__scan" aria-hidden="true"></div>
 
-      <div class="container hero__inner">
-        <div class="hero__copy">
-          <p class="eyebrow reveal"><span class="dot dot--teal"></span>Preparedness Intelligence · Est. 2026</p>
-          <h1 class="hero__title reveal">
-            <span class="nowrap">When systems fail,</span><br />
-            <span class="hero__title-accent">preparation decides.</span>
-          </h1>
-          <p class="hero__sub reveal">
-            Modern preparedness for an unstable world. Sonder Protocol builds clear, tested systems
-            that keep households calm, organized, and operational when the grid, the supply chain,
-            or the signal goes down.
-          </p>
-          <div class="hero__actions reveal">
-            <a href="#buy" class="btn btn--primary">Get Protocol 001 · $27 <span class="btn__arrow">→</span></a>
-            <a href="#moment" class="btn btn--ghost">Why It Matters</a>
+      <div class="container pd">
+        <div class="pd__copy">
+          <p class="eyebrow"><span class="dot dot--teal"></span>Protocol 001 · Household Field Manual</p>
+          <h1 class="pd__title">When the power goes out, <span class="hero__title-accent">know exactly what to do.</span></h1>
+          <p class="pd__sub">The 30-Day Blackout Playbook. A step-by-step plan and printable worksheets to keep your household fed, safe, and calm, from hour one to day thirty.</p>
+
+          <ul class="ticks">
+            <li>Instant PDF download</li>
+            <li>Printable worksheets</li>
+            <li>Works offline, on paper</li>
+          </ul>
+
+          <div class="pd__buy">
+            <div class="price"><span class="price__amount">$27</span><span class="price__note mono">ONE-TIME</span></div>
+            <form action="/api/checkout" method="POST" class="pd__form">
+              <button type="submit" class="btn btn--primary btn--xl">Get the Playbook <span class="btn__arrow">→</span></button>
+            </form>
           </div>
-          <dl class="hero__stats reveal">
-            <div><dt>30D</dt><dd>Blackout window Protocol 001 covers</dd></div>
-            <div><dt>04</dt><dd>Protocols in the series</dd></div>
-            <div><dt>0</dt><dd>Fear-based fluff</dd></div>
-          </dl>
+          <p class="fine mono" data-checkout-msg aria-live="polite">Secure checkout by Stripe · Digital product · All sales final</p>
         </div>
 
-        <aside class="console reveal" aria-label="Readiness console (illustrative)">
-          <header class="console__head">
-            <span>SP-CONSOLE // HOUSEHOLD READINESS</span>
-            <span class="t-teal">● LIVE</span>
-          </header>
-          <ul class="console__rows">
-            <li><span>Power</span><span class="bar"><i style="--v:.34" class="bar--red"></i></span><span class="t-red">34%</span></li>
-            <li><span>Water</span><span class="bar"><i style="--v:.58" class="bar--orange"></i></span><span class="t-orange">58%</span></li>
-            <li><span>Food</span><span class="bar"><i style="--v:.62" class="bar--orange"></i></span><span class="t-orange">62%</span></li>
-            <li><span>Comms</span><span class="bar"><i style="--v:.21" class="bar--red"></i></span><span class="t-red">21%</span></li>
-            <li><span>Plan</span><span class="bar"><i style="--v:.12" class="bar--red"></i></span><span class="t-red">12%</span></li>
-          </ul>
-          <div class="console__alert">
-            <span class="tag tag--orange">SYSTEM ALERT</span>
-            <p>Typical household is unprepared for a 72-hour outage. The 30-Day Blackout Playbook closes the gap.</p>
-          </div>
-          <footer class="console__foot">
-            <span>READINESS INDEX</span>
-            <span class="console__score">37<small>/100</small></span>
-          </footer>
-        </aside>
+        <figure class="pd__media">
+          <picture>
+            <source srcset="assets/img/protocol-001-mockup.webp" type="image/webp" />
+            <img src="assets/img/protocol-001-mockup.jpg" width="1200" height="1200" fetchpriority="high"
+                 alt="The 30-Day Blackout Playbook field manual with printable readiness worksheets" />
+          </picture>
+          <figcaption class="pd__badge mono"><span class="dot dot--orange"></span>PROTOCOL READY</figcaption>
+        </figure>
       </div>
 
       <div class="hero__ticker" aria-hidden="true">
         <div class="ticker">
-          <span>GRID INSTABILITY</span><span>CYBER EXPOSURE</span><span>SUPPLY CHAIN STRAIN</span><span>EXTREME WEATHER</span><span>WATER STRESS</span><span>COMMS OUTAGES</span><span>ECONOMIC VOLATILITY</span>
-          <span>GRID INSTABILITY</span><span>CYBER EXPOSURE</span><span>SUPPLY CHAIN STRAIN</span><span>EXTREME WEATHER</span><span>WATER STRESS</span><span>COMMS OUTAGES</span><span>ECONOMIC VOLATILITY</span>
+          <span>GRID FAILURE</span><span>EXTREME WEATHER</span><span>SUPPLY SHORTAGES</span><span>COMMS OUTAGES</span><span>WATER DISRUPTION</span><span>CYBER ATTACKS</span>
+          <span>GRID FAILURE</span><span>EXTREME WEATHER</span><span>SUPPLY SHORTAGES</span><span>COMMS OUTAGES</span><span>WATER DISRUPTION</span><span>CYBER ATTACKS</span>
         </div>
       </div>
     </section>
 
-    <!-- ============ 2. THE CURRENT MOMENT ============ -->
-    <section class="section" id="moment">
+    <!-- ============ WHAT'S INSIDE ============ -->
+    <section class="block" id="inside">
       <div class="container">
-        <div class="section__head">
-          <p class="kicker"><span class="kicker__num">01</span>The Current Moment</p>
-          <h2 class="section__title reveal">The world is becoming more fragile.<br /><span class="muted">Preparedness is no longer extreme — it is responsible.</span></h2>
-          <p class="section__lede reveal">Modern life runs on tightly coupled systems: power, water, logistics, networks. They are efficient and they are brittle. When one fails, the others follow. These are the risk vectors we track.</p>
+        <header class="block__head">
+          <p class="kicker"><span class="kicker__num">01</span>What's Inside</p>
+          <h2 class="block__title reveal">Everything in one download.</h2>
+        </header>
+
+        <div class="tiles">
+          <article class="tile reveal">
+            <svg class="tile__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h11l5 5v11H4z M15 4v5h5 M8 13h8 M8 17h6"/></svg>
+            <h3>Field Manual</h3>
+            <p>The full 30-day playbook, step by step.</p>
+          </article>
+          <article class="tile reveal">
+            <svg class="tile__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7 M5 10v10h14V10 M10 20v-6h4v6"/></svg>
+            <h3>Readiness Plan</h3>
+            <p>Your household's roles, contacts, and meeting points.</p>
+          </article>
+          <article class="tile reveal">
+            <svg class="tile__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v16H5z M8 8h1 M11 8h5 M8 12h1 M11 12h5 M8 16h1 M11 16h5"/></svg>
+            <h3>Essentials Inventory</h3>
+            <p>Water, food, power, and medical, tracked.</p>
+          </article>
+          <article class="tile reveal">
+            <svg class="tile__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v14H4z M4 10h16 M8 3v5 M16 3v5 M8 14l2 2 4-4"/></svg>
+            <h3>30-Day Action Plan</h3>
+            <p>A day-by-day checklist so nothing gets missed.</p>
+          </article>
         </div>
 
-        <!-- Featured alert slot: swap copy as conditions change -->
-        <article class="featured-alert reveal">
-          <div class="featured-alert__meta">
-            <span class="tag tag--red">FEATURED BRIEFING</span>
-            <span class="mono muted">UPDATED · Q4 2026</span>
-          </div>
-          <h3>Grid demand is outpacing grid capacity.</h3>
-          <p>Aging infrastructure, extreme weather, and surging electricity demand are increasing the odds of extended regional outages. A 72-hour blackout is no longer a rare event — it is a planning baseline.</p>
-          <a href="#buy" class="link-arrow">Get Protocol 001 →</a>
-        </article>
-
-        <div class="risk-grid">
-          <article class="risk-card reveal" data-level="high">
-            <header><span class="risk-card__id">R-01</span><span class="level level--high">HIGH</span></header>
-            <h3>Grid Instability</h3>
-            <p>Strained infrastructure and peak-load failures make multi-day outages a realistic scenario.</p>
-          </article>
-          <article class="risk-card reveal" data-level="high">
-            <header><span class="risk-card__id">R-02</span><span class="level level--high">HIGH</span></header>
-            <h3>Cyber Attacks</h3>
-            <p>Utilities, banks, and hospitals are active targets. Digital failure becomes physical disruption.</p>
-          </article>
-          <article class="risk-card reveal" data-level="elevated">
-            <header><span class="risk-card__id">R-03</span><span class="level level--elevated">ELEVATED</span></header>
-            <h3>Supply Chain Disruption</h3>
-            <p>Just-in-time logistics leave shelves empty within days of a shock.</p>
-          </article>
-          <article class="risk-card reveal" data-level="high">
-            <header><span class="risk-card__id">R-04</span><span class="level level--high">HIGH</span></header>
-            <h3>Natural Disasters</h3>
-            <p>Fires, floods, storms, and heat events are more frequent, more costly, and less predictable.</p>
-          </article>
-          <article class="risk-card reveal" data-level="elevated">
-            <header><span class="risk-card__id">R-05</span><span class="level level--elevated">ELEVATED</span></header>
-            <h3>Water Shortages</h3>
-            <p>Drought, contamination, and pressure loss can cut safe water access with little warning.</p>
-          </article>
-          <article class="risk-card reveal" data-level="monitor">
-            <header><span class="risk-card__id">R-06</span><span class="level level--monitor">MONITOR</span></header>
-            <h3>Civil Unrest</h3>
-            <p>Localized disruption can restrict movement, close businesses, and delay emergency services.</p>
-          </article>
-          <article class="risk-card reveal" data-level="elevated">
-            <header><span class="risk-card__id">R-07</span><span class="level level--elevated">ELEVATED</span></header>
-            <h3>Communications Outages</h3>
-            <p>When cell and internet go down, families need a plan that works offline.</p>
-          </article>
-          <article class="risk-card reveal" data-level="monitor">
-            <header><span class="risk-card__id">R-08</span><span class="level level--monitor">MONITOR</span></header>
-            <h3>Economic Uncertainty</h3>
-            <p>Inflation and job shocks reward households with reserves, redundancy, and a plan.</p>
-          </article>
+        <!-- Look inside: swap these for real page screenshots when available -->
+        <div class="peek">
+          <figure class="peek__item reveal" style="--x:96%;--y:20%"><figcaption class="mono">READINESS PLAN</figcaption></figure>
+          <figure class="peek__item reveal" style="--x:96%;--y:48%"><figcaption class="mono">ESSENTIALS INVENTORY</figcaption></figure>
+          <figure class="peek__item reveal" style="--x:96%;--y:88%"><figcaption class="mono">30-DAY ACTION PLAN</figcaption></figure>
         </div>
       </div>
     </section>
 
-    <!-- ============ 3. WHAT WE DO ============ -->
-    <section class="section section--alt" id="systems">
+    <!-- ============ WHY NOW ============ -->
+    <section class="block block--alt" id="why">
       <div class="container">
-        <div class="section__head section__head--split">
-          <div>
-            <p class="kicker"><span class="kicker__num">02</span>What We Do</p>
-            <h2 class="section__title reveal">Preparedness intelligence,<br />engineered into systems.</h2>
-          </div>
-          <p class="section__lede reveal">We turn complex risk into simple, executable protocols. No guesswork. No gear obsession. Just the right decisions, made in advance, in the right order.</p>
-        </div>
-
-        <div class="pillars">
-          <article class="pillar reveal">
-            <span class="pillar__num">/01</span>
-            <h3>Preparedness Guides</h3>
-            <p>Researched, plain-language field guides for the scenarios most likely to affect you.</p>
-          </article>
-          <article class="pillar reveal">
-            <span class="pillar__num">/02</span>
-            <h3>Emergency Systems</h3>
-            <p>Step-by-step operating procedures for the first hour, first day, and first week.</p>
-          </article>
-          <article class="pillar reveal">
-            <span class="pillar__num">/03</span>
-            <h3>Survival Planning</h3>
-            <p>Water, food, power, and medical planning sized to your household and your space.</p>
-          </article>
-          <article class="pillar reveal">
-            <span class="pillar__num">/04</span>
-            <h3>Household Readiness</h3>
-            <p>Checklists, roles, and drills so every person in your home knows what to do.</p>
-          </article>
-          <article class="pillar reveal">
-            <span class="pillar__num">/05</span>
-            <h3>Urban Resilience</h3>
-            <p>Strategies built for apartments, dense cities, and limited storage, not rural compounds.</p>
-          </article>
-          <article class="pillar reveal">
-            <span class="pillar__num">/06</span>
-            <h3>Tactical Knowledge</h3>
-            <p>The practical skills professionals rely on, translated for everyday people.</p>
-          </article>
+        <header class="block__head">
+          <p class="kicker"><span class="kicker__num">02</span>Why Now</p>
+          <h2 class="block__title reveal">Outages are getting longer.<br /><span class="muted">Most homes have no plan.</span></h2>
+        </header>
+        <div class="why">
+          <div class="why__item reveal"><span class="level level--high">GRID</span><p>Aging infrastructure fails under peak load.</p></div>
+          <div class="why__item reveal"><span class="level level--high">WEATHER</span><p>Storms, heat, and fires knock out power for days.</p></div>
+          <div class="why__item reveal"><span class="level level--elevated">SUPPLY</span><p>Store shelves empty within days of a shock.</p></div>
+          <div class="why__item reveal"><span class="level level--monitor">COMMS</span><p>No power means no cell, no internet, no updates.</p></div>
         </div>
       </div>
     </section>
 
-    <!-- ============ 4. FEATURED PROTOCOLS ============ -->
-    <section class="section" id="protocols">
+    <!-- ============ HOW IT WORKS ============ -->
+    <section class="block" id="how">
       <div class="container">
-        <div class="section__head">
-          <p class="kicker"><span class="kicker__num">03</span>Featured Protocols</p>
-          <h2 class="section__title reveal">The Protocol Series.</h2>
-          <p class="section__lede reveal">Each protocol is a complete, self-contained system: briefing, checklists, procedures, and printable field cards. Built to be used, not just read.</p>
-        </div>
-
-        <div class="protocols">
-          <article class="protocol protocol--lead reveal">
-            <div class="protocol__top">
-              <span class="protocol__code">PROTOCOL 001</span>
-              <span class="tag tag--orange">AVAILABLE NOW</span>
-            </div>
-            <div class="protocol__glyph" aria-hidden="true">
-              <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="44" fill="none" stroke="currentColor" stroke-opacity=".25"/><circle cx="60" cy="60" r="44" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="207 277" transform="rotate(-90 60 60)"/><text x="60" y="68" text-anchor="middle">30D</text></svg>
-            </div>
-            <h3>The 30-Day Blackout Playbook</h3>
-            <p>The household field manual for life without power, from the first night to day thirty, with printable worksheets to plan, inventory, and execute.</p>
-            <ul class="protocol__specs">
-              <li><span>Scope</span><span>Power loss · 0–30 days</span></li>
-              <li><span>Format</span><span>PDF field manual + worksheets</span></li>
-              <li><span>Price</span><span class="t-orange">$27 · instant download</span></li>
-            </ul>
-            <a href="#buy" class="btn btn--primary btn--block">Buy Now · $27</a>
-          </article>
-
-          <article class="protocol reveal">
-            <div class="protocol__top">
-              <span class="protocol__code">PROTOCOL 002</span>
-              <span class="tag">IN DEVELOPMENT</span>
-            </div>
-            <h3>Water, Food &amp; Essential Supplies</h3>
-            <p>How much you actually need, how to store it, and how to rotate it without waste.</p>
-            <ul class="protocol__specs">
-              <li><span>Scope</span><span>Provisioning · 14 days</span></li>
-              <li><span>Status</span><span>Coming soon</span></li>
-            </ul>
-          </article>
-
-          <article class="protocol reveal">
-            <div class="protocol__top">
-              <span class="protocol__code">PROTOCOL 003</span>
-              <span class="tag">IN DEVELOPMENT</span>
-            </div>
-            <h3>Urban Survival Framework</h3>
-            <p>Shelter-in-place versus relocate decisions, building-level coordination, and city-specific threats.</p>
-            <ul class="protocol__specs">
-              <li><span>Scope</span><span>Dense urban · Multi-hazard</span></li>
-              <li><span>Status</span><span>Coming soon</span></li>
-            </ul>
-          </article>
-
-          <article class="protocol reveal">
-            <div class="protocol__top">
-              <span class="protocol__code">PROTOCOL 004</span>
-              <span class="tag tag--red">CLASSIFIED</span>
-            </div>
-            <h3>Extended Grid-Down Plan</h3>
-            <p>Extended-duration resilience: power alternatives, sanitation, health, and household morale.</p>
-            <ul class="protocol__specs">
-              <li><span>Scope</span><span>Long-duration · 90+ days</span></li>
-              <li><span>Status</span><span>Planned</span></li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ 5. WHY TRUST US ============ -->
-    <section class="section section--alt" id="trust">
-      <div class="container trust">
-        <div class="trust__intro">
-          <p class="kicker"><span class="kicker__num">04</span>Our Standard</p>
-          <h2 class="section__title reveal">Prepared, not paranoid.</h2>
-          <p class="section__lede reveal">Most preparedness content is built on fear, gear, and guesswork. We build on research, procedure, and calm. Our job is to make you capable, not anxious.</p>
-          <blockquote class="trust__quote reveal">
-            “The goal is not to predict the crisis. The goal is to make it boring.”
-            <cite>— Sonder Protocol Operating Principle</cite>
-          </blockquote>
-        </div>
-
-        <ol class="standards">
-          <li class="reveal"><span class="standards__n">01</span><div><h3>Systems, not fluff</h3><p>Every protocol ends in a checklist you can execute. If it is not actionable, it is cut.</p></div></li>
-          <li class="reveal"><span class="standards__n">02</span><div><h3>Real-world tested</h3><p>Grounded in emergency-management guidance and pressure-tested against real outages and disasters.</p></div></li>
-          <li class="reveal"><span class="standards__n">03</span><div><h3>Clear and actionable</h3><p>Plain language, tight structure, decision trees for when you are stressed and the lights are off.</p></div></li>
-          <li class="reveal"><span class="standards__n">04</span><div><h3>Built for normal people</h3><p>Designed for families, renters, and professionals, not bunkers and extremists.</p></div></li>
-          <li class="reveal"><span class="standards__n">05</span><div><h3>Modern and researched</h3><p>Updated as conditions change. Sourced, current, and free of sensationalism.</p></div></li>
-          <li class="reveal"><span class="standards__n">06</span><div><h3>Calm by design</h3><p>A household with a plan stays organized. Organized households stay safe.</p></div></li>
+        <header class="block__head">
+          <p class="kicker"><span class="kicker__num">03</span>How It Works</p>
+          <h2 class="block__title reveal">Ready in an afternoon.</h2>
+        </header>
+        <ol class="steps">
+          <li class="reveal"><span class="steps__n">01</span><h3>Buy</h3><p>Secure checkout. Takes a minute.</p></li>
+          <li class="reveal"><span class="steps__n">02</span><h3>Download</h3><p>Instant PDF, right after payment.</p></li>
+          <li class="reveal"><span class="steps__n">03</span><h3>Print &amp; Prepare</h3><p>Fill in the worksheets. Done before the lights go out.</p></li>
         </ol>
       </div>
     </section>
 
-    <!-- ============ 6. BUY PROTOCOL 001 ============ -->
-    <section class="cta buy" id="buy">
-      <div class="cta__grid" aria-hidden="true"></div>
-      <div class="container buy__inner">
-        <figure class="buy__media reveal">
-          <picture>
-            <source srcset="assets/img/protocol-001-mockup.webp" type="image/webp" />
-            <img src="assets/img/protocol-001-mockup.jpg" width="1200" height="1200" loading="lazy"
-                 alt="The 30-Day Blackout Playbook field manual with Household Readiness Plan, Essentials Inventory, and 30-Day Action Plan worksheets" />
-          </picture>
-        </figure>
-
-        <div class="buy__copy reveal">
-          <span class="tag tag--teal">PROTOCOL READY · AVAILABLE NOW</span>
-          <h2 class="cta__title">Get the first protocol.</h2>
-          <p class="cta__sub">Protocol 001: The 30-Day Blackout Playbook. A household field manual for staying calm, organized, and operational when the power goes out and stays out.</p>
-
-          <ul class="buy__list">
-            <li>The 30-Day Blackout Playbook: Household Field Manual (PDF)</li>
-            <li>Household Readiness Plan worksheet</li>
-            <li>Essentials Inventory worksheet</li>
-            <li>30-Day Action Plan tracker</li>
-          </ul>
-
-          <div class="buy__price">
-            <span class="buy__amount">$27</span>
-            <span class="mono muted">ONE-TIME · INSTANT PDF DOWNLOAD</span>
-          </div>
-
-          <form action="/api/checkout" method="POST" class="buy__form">
-            <button type="submit" class="btn btn--primary btn--block">Buy Protocol 001 · $27 <span class="btn__arrow">→</span></button>
-          </form>
-          <p class="buy__fine mono" data-checkout-msg aria-live="polite">Secure checkout by Stripe. Print-ready, so it works offline.</p>
+    <!-- ============ FAQ ============ -->
+    <section class="block block--alt" id="faq">
+      <div class="container faq">
+        <header class="block__head">
+          <p class="kicker"><span class="kicker__num">04</span>FAQ</p>
+          <h2 class="block__title reveal">Quick answers.</h2>
+        </header>
+        <div class="faq__list">
+          <details class="reveal"><summary>What exactly do I get?</summary><p>A PDF field manual plus three printable worksheets: Household Readiness Plan, Essentials Inventory, and the 30-Day Action Plan.</p></details>
+          <details class="reveal"><summary>Does it work for apartments?</summary><p>Yes. It's built for normal homes and apartments, not bunkers or rural compounds.</p></details>
+          <details class="reveal"><summary>How do I get it?</summary><p>Right after checkout you land on your download page. Your link stays active for 14 days. Save the file and print it.</p></details>
+          <details class="reveal"><summary>Why print it?</summary><p>Because in a blackout your phone dies. A paper copy works when the power doesn't.</p></details>
+          <details class="reveal"><summary>Can I get a refund?</summary><p>This is an instant digital download, so all sales are final.</p></details>
         </div>
+      </div>
+    </section>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section class="cta" id="buy">
+      <div class="cta__grid" aria-hidden="true"></div>
+      <div class="container cta__inner reveal">
+        <span class="tag tag--teal">PROTOCOL 001 · AVAILABLE NOW</span>
+        <h2 class="cta__title">Don't wait for the outage.</h2>
+        <p class="cta__sub">The 30-Day Blackout Playbook. Instant download, $27.</p>
+        <form action="/api/checkout" method="POST" class="cta__form">
+          <button type="submit" class="btn btn--primary btn--xl">Get the Playbook · $27 <span class="btn__arrow">→</span></button>
+        </form>
+        <p class="fine mono">Secure checkout by Stripe · Digital product · All sales final</p>
+        <p class="next mono">COMING NEXT: <span>002 Water &amp; Supplies</span><span>003 Urban Survival</span><span>004 Extended Grid-Down</span></p>
       </div>
     </section>
 
   </main>
 
-  <!-- ============ 7. FOOTER ============ -->
+  <!-- ============ STICKY BUY BAR ============ -->
+  <div class="buybar" data-buybar aria-hidden="true">
+    <div class="container buybar__inner">
+      <div class="buybar__info">
+        <span class="buybar__name">The 30-Day Blackout Playbook</span>
+        <span class="buybar__meta mono">INSTANT PDF · $27</span>
+      </div>
+      <form action="/api/checkout" method="POST">
+        <button type="submit" class="btn btn--primary" tabindex="-1">Get It · $27</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
   <footer class="footer">
     <div class="container footer__inner">
       <div class="footer__brand">
@@ -370,27 +229,25 @@
           </svg>
           <span class="brand__name">SONDER<span class="brand__sep">/</span>PROTOCOL</span>
         </a>
-        <p>Preparedness intelligence and systems for an unstable world. Our mission: make every household calm, capable, and ready before the crisis.</p>
+        <p>Preparedness systems for everyday households. Prepared, not paranoid.</p>
         <p class="mono muted small">A Sonder Project company.</p>
       </div>
       <nav class="footer__col" aria-label="Footer">
         <h4>Navigate</h4>
-        <a href="#moment">The Moment</a>
-        <a href="#systems">What We Do</a>
-        <a href="#protocols">Protocols</a>
-        <a href="#trust">Our Standard</a>
+        <a href="#inside">What's Inside</a>
+        <a href="#how">How It Works</a>
+        <a href="#faq">FAQ</a>
         <a href="#buy">Buy Protocol 001</a>
       </nav>
       <div class="footer__col">
         <h4>Follow</h4>
         <a href="#" aria-label="Sonder Protocol on Instagram (coming soon)">Instagram</a>
-        <a href="#" aria-label="Sonder Protocol on X (coming soon)">X / Twitter</a>
-        <a href="#" aria-label="Sonder Protocol on YouTube (coming soon)">YouTube</a>
         <a href="#" aria-label="Sonder Protocol on TikTok (coming soon)">TikTok</a>
+        <a href="#" aria-label="Sonder Protocol on YouTube (coming soon)">YouTube</a>
       </div>
     </div>
     <div class="container footer__base">
-      <span>© <span data-year>2026</span> Sonder Protocol. All rights reserved.</span>
+      <span>© <span data-year>2026</span> Sonder Protocol. All rights reserved. Digital products are non-refundable.</span>
       <span class="mono">SYSTEM STATUS: <span class="t-teal">OPERATIONAL</span></span>
     </div>
   </footer>
