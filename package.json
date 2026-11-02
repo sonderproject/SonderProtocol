@@ -1,0 +1,10 @@
+{
+  "name": "sonder-protocol",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "@vercel/blob": "^2.8.2",
+    "stripe": "^23.1.0"
+  }
+}

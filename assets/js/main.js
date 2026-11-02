@@ -53,55 +53,10 @@
     reveals.forEach((el) => el.classList.add("is-in"));
   }
 
-  // --- Email signup ---
-  // Set data-endpoint on the form to a POST URL (Formspree, ConvertKit, Beehiiv, etc.).
-  // With no endpoint, the form runs in demo mode and stores nothing.
-  const form = document.querySelector("[data-signup]");
-  const msg = document.querySelector("[data-signup-msg]");
-  if (form && msg) {
-    const input = form.querySelector('input[type="email"]');
-    const button = form.querySelector('button[type="submit"]');
-    const setMsg = (text, state) => {
-      msg.textContent = text;
-      msg.classList.remove("is-ok", "is-err");
-      if (state) msg.classList.add(state);
-    };
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      form.classList.remove("is-error");
-      if (form.company && form.company.value) return; // honeypot
-
-      const email = input.value.trim();
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        form.classList.add("is-error");
-        setMsg("ENTER A VALID EMAIL ADDRESS.", "is-err");
-        input.focus();
-        return;
-      }
-
-      const endpoint = form.dataset.endpoint;
-      button.disabled = true;
-      const label = button.textContent;
-      button.textContent = "Transmitting…";
-
-      try {
-        if (endpoint) {
-          const res = await fetch(endpoint, {
-            method: "POST",
-            headers: { "Content-Type": "application/json", Accept: "application/json" },
-            body: JSON.stringify({ email, source: "sonderprotocol.com/home" }),
-          });
-          if (!res.ok) throw new Error("Request failed");
-        }
-        form.reset();
-        setMsg("CONFIRMED. YOU'RE ON THE READINESS LIST.", "is-ok");
-      } catch {
-        setMsg("TRANSMISSION FAILED. PLEASE TRY AGAIN.", "is-err");
-      } finally {
-        button.disabled = false;
-        button.textContent = label;
-      }
-    });
+  // --- Checkout error notice (set by /api/checkout on failure) ---
+  const checkoutMsg = document.querySelector("[data-checkout-msg]");
+  if (checkoutMsg && new URLSearchParams(location.search).get("checkout") === "error") {
+    checkoutMsg.textContent = "CHECKOUT UNAVAILABLE. PLEASE TRY AGAIN IN A MOMENT.";
+    checkoutMsg.classList.add("t-red");
   }
 })();

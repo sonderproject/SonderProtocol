@@ -1,0 +1,5 @@
+node_modules/
+.vercel/
+.env*
+# Paid product files must never be committed — this repo is public.
+*.pdf
