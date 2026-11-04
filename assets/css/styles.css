@@ -416,18 +416,14 @@ p { margin: 0; }
 .block__title .muted { color: var(--text-3); }
 
 
-/* Why this, not Google */
-.vs { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.vs__col { padding: 30px 28px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); }
-.vs__col--good { border-color: rgba(46, 230, 214, 0.35); background: linear-gradient(180deg, rgba(46, 230, 214, 0.07), var(--surface) 60%); box-shadow: 0 30px 80px -40px rgba(46, 230, 214, 0.35); }
-.vs__col .level { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.16em; }
-.vs__col ul { list-style: none; margin: 22px 0 0; padding: 0; display: grid; gap: 14px; }
-.vs__col li { position: relative; padding-left: 28px; font-size: 0.98rem; line-height: 1.45; }
-.vs__col--bad li { color: var(--text-3); }
-.vs__col--bad li::before, .vs__col--bad li::after { content: ""; position: absolute; left: 2px; top: 0.7em; width: 12px; height: 2px; background: var(--red); transform: rotate(45deg); }
-.vs__col--bad li::after { transform: rotate(-45deg); }
-.vs__col--good li { color: var(--text); }
-.vs__col--good li::before { content: ""; position: absolute; left: 0; top: 0.42em; width: 11px; height: 6px; border-left: 2px solid var(--teal); border-bottom: 2px solid var(--teal); transform: rotate(-45deg); }
+/* Field knowledge */
+.intel { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
+.intel__item { position: relative; background: var(--bg); padding: 30px 24px 32px; transition: background var(--t-med) var(--ease); }
+.intel__item::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: var(--orange); transform: scaleX(0.18); transform-origin: left; transition: transform var(--t-med) var(--ease); }
+.intel__item:hover { background: var(--surface); }
+.intel__item:hover::before { transform: scaleX(1); }
+.intel__q { display: block; font-size: 0.72rem; letter-spacing: 0.16em; color: var(--orange); }
+.intel__item p { margin-top: 14px; font-size: 1rem; line-height: 1.5; color: var(--text); }
 
 /* What's inside */
 .tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
@@ -491,7 +487,7 @@ p { margin: 0; }
   .pd__media { max-width: 560px; order: -1; }
   .tiles, .why { grid-template-columns: repeat(2, 1fr); }
   .faq { grid-template-columns: 1fr; }
-  .vs { grid-template-columns: 1fr; }
+  .intel { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 640px) {
   .pd__media { order: 0; }
@@ -499,8 +495,7 @@ p { margin: 0; }
   .brand__name { font-size: 0.85rem; letter-spacing: 0.12em; }
   .pd__buy { gap: 16px; }
   .pd__form, .pd__form .btn, .cta__form .btn { width: 100%; }
-  .why, .steps, .vs { grid-template-columns: 1fr; }
-  .vs__col { padding: 24px 20px; }
+  .why, .steps, .intel { grid-template-columns: 1fr; }
   .tiles { grid-template-columns: 1fr 1fr; gap: 10px; }
   .tile { padding: 18px 16px; }
   .tile__icon { width: 24px; height: 24px; margin-bottom: 14px; }
