@@ -415,6 +415,20 @@ p { margin: 0; }
 .block__title { font-size: clamp(1.9rem, 3.4vw, 3rem); font-weight: 600; }
 .block__title .muted { color: var(--text-3); }
 
+
+/* Why this, not Google */
+.vs { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.vs__col { padding: 30px 28px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); }
+.vs__col--good { border-color: rgba(46, 230, 214, 0.35); background: linear-gradient(180deg, rgba(46, 230, 214, 0.07), var(--surface) 60%); box-shadow: 0 30px 80px -40px rgba(46, 230, 214, 0.35); }
+.vs__col .level { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.16em; }
+.vs__col ul { list-style: none; margin: 22px 0 0; padding: 0; display: grid; gap: 14px; }
+.vs__col li { position: relative; padding-left: 28px; font-size: 0.98rem; line-height: 1.45; }
+.vs__col--bad li { color: var(--text-3); }
+.vs__col--bad li::before, .vs__col--bad li::after { content: ""; position: absolute; left: 2px; top: 0.7em; width: 12px; height: 2px; background: var(--red); transform: rotate(45deg); }
+.vs__col--bad li::after { transform: rotate(-45deg); }
+.vs__col--good li { color: var(--text); }
+.vs__col--good li::before { content: ""; position: absolute; left: 0; top: 0.42em; width: 11px; height: 6px; border-left: 2px solid var(--teal); border-bottom: 2px solid var(--teal); transform: rotate(-45deg); }
+
 /* What's inside */
 .tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 .tile { padding: 28px 24px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); transition: border-color var(--t-med) var(--ease), transform var(--t-med) var(--ease); }
@@ -477,6 +491,7 @@ p { margin: 0; }
   .pd__media { max-width: 560px; order: -1; }
   .tiles, .why { grid-template-columns: repeat(2, 1fr); }
   .faq { grid-template-columns: 1fr; }
+  .vs { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
   .pd__media { order: 0; }
@@ -484,7 +499,8 @@ p { margin: 0; }
   .brand__name { font-size: 0.85rem; letter-spacing: 0.12em; }
   .pd__buy { gap: 16px; }
   .pd__form, .pd__form .btn, .cta__form .btn { width: 100%; }
-  .why, .steps { grid-template-columns: 1fr; }
+  .why, .steps, .vs { grid-template-columns: 1fr; }
+  .vs__col { padding: 24px 20px; }
   .tiles { grid-template-columns: 1fr 1fr; gap: 10px; }
   .tile { padding: 18px 16px; }
   .tile__icon { width: 24px; height: 24px; margin-bottom: 14px; }
