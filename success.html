@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-bonus="off">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -33,9 +33,12 @@
     <!-- Paid state -->
     <div class="container cta__inner" data-state="ok">
       <span class="tag tag--teal">● CHECKOUT COMPLETE · ACCESS READY</span>
-      <h1 class="cta__title">Protocol 001 is yours.</h1>
+      <h1 class="cta__title">Your Blackout Kit is ready.</h1>
       <p class="cta__sub">The 30-Day Blackout Playbook is ready to download. Save it to your device and print the worksheets. A paper copy works when the power doesn't.</p>
-      <a class="btn btn--primary access__btn" data-download href="#">Download the Playbook (PDF) <span class="btn__arrow">↓</span></a>
+      <div class="access__btns">
+        <a class="btn btn--primary access__btn" data-download href="#">Download the Playbook (PDF) <span class="btn__arrow">↓</span></a>
+        <a class="btn btn--ghost access__btn" data-download-bonus data-bonus-only href="#">Download the Buy List (Bonus) <span class="btn__arrow">↓</span></a>
+      </div>
       <ul class="access__notes mono">
         <li>Bookmark this page. Your download link stays active for 14 days.</li>
         <li>Your receipt goes to the email you used at checkout.</li>
@@ -69,7 +72,9 @@
         document.querySelector("[data-error-msg]").textContent = messages[error] || messages.invalid;
         return;
       }
-      document.querySelector("[data-download]").href = "/api/download?session_id=" + encodeURIComponent(sessionId);
+      const base = "/api/download?session_id=" + encodeURIComponent(sessionId);
+      document.querySelector("[data-download]").href = base;
+      document.querySelector("[data-download-bonus]").href = base + "&file=bonus";
     })();
   </script>
 </body>

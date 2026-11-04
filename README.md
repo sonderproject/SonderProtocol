@@ -25,3 +25,11 @@ api/_product.js                     product name, price ($27), access window (14
    | `STRIPE_PRICE_ID` | optional; overrides the live price ID in `api/_product.js` |
 5. **Stripe:** Settings → Customer emails → turn on *Successful payments* so buyers get a receipt.
 6. Redeploy, then run one test purchase with card `4242 4242 4242 4242` while on the test key.
+
+## Bonus PDF (The Sonder Buy List)
+
+Bonus content is hidden until switched on.
+
+1. Upload the bonus PDF to the same private Blob store. Its filename must contain `buy-list`, `buylist`, `buy list` or `bonus` (e.g. `sonder-buy-list.pdf`). Any other PDF is treated as the Playbook. Optional overrides: `BONUS_BLOB_PATHNAME`, `PDF_BLOB_PATHNAME`.
+2. In `index.html` and `success.html`, change `<html lang="en" data-bonus="off">` to `data-bonus="on"`.
+3. Push to `main`. The success page then shows a second download button (`/api/download?session_id=...&file=bonus`).

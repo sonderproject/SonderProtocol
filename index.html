@@ -1,9 +1,10 @@
 <!doctype html>
-<html lang="en">
+<!-- Bonus switch: set data-bonus="on" once the Buy List PDF is in the Blob store (also in success.html). -->
+<html lang="en" data-bonus="off">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>The 30-Day Blackout Playbook — Sonder Protocol</title>
+  <title>The Blackout Kit — Sonder Protocol</title>
   <meta name="description" content="Protocol 001: The 30-Day Blackout Playbook. The field knowledge seasoned survivalists rely on, in one 42-page household plan. Instant PDF, $27." />
   <meta name="theme-color" content="#06080a" />
   <meta property="og:title" content="The 30-Day Blackout Playbook — Sonder Protocol" />
@@ -42,7 +43,7 @@
       </a>
       <nav class="nav__links" aria-label="Primary">
         <a href="#inside">What's Inside</a>
-        <a href="#how">How It Works</a>
+        <a href="#kit">What You Get</a>
         <a href="#faq">FAQ</a>
       </nav>
       <a href="#buy" class="btn btn--sm btn--primary nav__cta">Get It · $27</a>
@@ -62,7 +63,7 @@
 
       <div class="container pd">
         <div class="pd__copy">
-          <p class="eyebrow"><span class="dot dot--teal"></span>Protocol 001 · Household Field Manual</p>
+          <p class="eyebrow"><span class="dot dot--teal"></span>Protocol 001 · The Blackout Kit</p>
           <h1 class="pd__title">When the power goes out, <span class="hero__title-accent">know exactly what to do.</span></h1>
           <p class="pd__sub">The field knowledge seasoned survivalists rely on, organized into one 42-page plan: exactly how much your household needs, what to buy first, and what to do hour by hour.</p>
 
@@ -73,10 +74,12 @@
             <li>Works offline, on paper</li>
           </ul>
 
+          <p class="bonus-badge mono" data-bonus-only><span class="bonus-badge__tag">+ FREE BONUS</span>The Sonder Buy List: exactly what to buy, with links</p>
+
           <div class="pd__buy">
             <div class="price"><span class="price__amount">$27</span><span class="price__note mono">ONE-TIME</span></div>
             <form action="/api/checkout" method="POST" class="pd__form">
-              <button type="submit" class="btn btn--primary btn--xl">Get the Playbook <span class="btn__arrow">→</span></button>
+              <button type="submit" class="btn btn--primary btn--xl">Get the Kit <span class="btn__arrow">→</span></button>
             </form>
           </div>
           <p class="fine mono" data-checkout-msg aria-live="polite">Secure checkout by Stripe · Digital product · All sales final</p>
@@ -205,16 +208,53 @@
       </div>
     </section>
 
+    <!-- ============ EVERYTHING YOU GET ============ -->
+    <section class="block" id="kit">
+      <div class="container">
+        <header class="block__head">
+          <p class="kicker"><span class="kicker__num">05</span>Everything You Get</p>
+          <h2 class="block__title reveal">Done for you.<br /><span class="muted">Nothing left to figure out.</span></h2>
+        </header>
+        <div class="kit">
+          <article class="kit__item reveal">
+            <picture class="kit__thumb">
+              <source srcset="assets/img/protocol-001-mockup.webp" type="image/webp" />
+              <img src="assets/img/protocol-001-mockup.jpg" width="1200" height="1200" loading="lazy" alt="" />
+            </picture>
+            <div class="kit__body">
+              <span class="tag">INCLUDED</span>
+              <h3>The 30-Day Blackout Playbook</h3>
+              <p>42-page household field manual: exact quantities, a staged buying plan, hour-by-hour outage procedures, safety, and the stay-or-go card.</p>
+            </div>
+          </article>
+          <article class="kit__item kit__item--bonus reveal" data-bonus-only>
+            <div class="kit__thumb kit__thumb--icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 4h2l2.5 11h11L21 7H6.5 M9 20h.01 M17 20h.01"/></svg>
+            </div>
+            <div class="kit__body">
+              <span class="tag tag--orange">FREE BONUS</span>
+              <h3>The Sonder Buy List</h3>
+              <p>A curated list of exactly what to buy, how many, and in what order, with direct links. Nothing left to research.</p>
+            </div>
+          </article>
+        </div>
+        <div class="kit__total reveal">
+          <div><span class="mono muted">TOTAL TODAY</span><span class="kit__price">$27</span><span class="mono muted">ONE-TIME · INSTANT DOWNLOAD</span></div>
+          <form action="/api/checkout" method="POST"><button type="submit" class="btn btn--primary btn--xl">Get the Blackout Kit <span class="btn__arrow">→</span></button></form>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ FAQ ============ -->
     <section class="block block--alt" id="faq">
       <div class="container faq">
         <header class="block__head">
-          <p class="kicker"><span class="kicker__num">05</span>FAQ</p>
+          <p class="kicker"><span class="kicker__num">06</span>FAQ</p>
           <h2 class="block__title reveal">Quick answers.</h2>
         </header>
         <div class="faq__list">
           <details class="reveal"><summary>Who put this together?</summary><p>Sonder Protocol, drawing on emergency-management guidance and the field experience of seasoned survivalists, organized into one plan you can follow under stress.</p></details>
-          <details class="reveal"><summary>What exactly do I get?</summary><p>A 42-page PDF: water and food quantity targets, a buying roadmap with shopping ledgers and a budget worksheet, a 7-day menu rotation, hour-by-hour outage procedures, safety guides, a stay-or-go decision card, and a printable emergency quick reference.</p></details>
+          <details class="reveal"><summary>What exactly do I get?</summary><p>A 42-page PDF: water and food quantity targets, a buying roadmap with shopping ledgers and a budget worksheet, a 7-day menu rotation, hour-by-hour outage procedures, safety guides, a stay-or-go decision card, and a printable emergency quick reference.<span data-bonus-only> Plus the free Sonder Buy List: a curated, linked shopping list.</span></p></details>
           <details class="reveal"><summary>Does it work for apartments?</summary><p>Yes. It's built for normal homes and apartments, not bunkers or rural compounds.</p></details>
           <details class="reveal"><summary>How do I get it?</summary><p>Right after checkout you land on your download page. Your link stays active for 14 days. Save the file and print it.</p></details>
           <details class="reveal"><summary>Why print it?</summary><p>Because in a blackout your phone dies. A paper copy works when the power doesn't.</p></details>
@@ -229,9 +269,9 @@
       <div class="container cta__inner reveal">
         <span class="tag tag--teal">PROTOCOL 001 · AVAILABLE NOW</span>
         <h2 class="cta__title">Don't wait for the outage.</h2>
-        <p class="cta__sub">The 30-Day Blackout Playbook. 42 pages, instant download, $27.</p>
+        <p class="cta__sub">The Blackout Kit: the 42-page Playbook<span data-bonus-only> + the free Buy List</span>. Instant download, $27.</p>
         <form action="/api/checkout" method="POST" class="cta__form">
-          <button type="submit" class="btn btn--primary btn--xl">Get the Playbook · $27 <span class="btn__arrow">→</span></button>
+          <button type="submit" class="btn btn--primary btn--xl">Get the Blackout Kit · $27 <span class="btn__arrow">→</span></button>
         </form>
         <p class="fine mono">Secure checkout by Stripe · Digital product · All sales final</p>
         <p class="next mono">COMING NEXT: <span>002 Water &amp; Supplies</span><span>003 Urban Survival</span><span>004 Extended Grid-Down</span></p>
@@ -244,8 +284,8 @@
   <div class="buybar" data-buybar aria-hidden="true">
     <div class="container buybar__inner">
       <div class="buybar__info">
-        <span class="buybar__name">The 30-Day Blackout Playbook</span>
-        <span class="buybar__meta mono">INSTANT PDF · $27</span>
+        <span class="buybar__name">The Blackout Kit</span>
+        <span class="buybar__meta mono">PLAYBOOK<span data-bonus-only> + FREE BUY LIST</span> · $27</span>
       </div>
       <form action="/api/checkout" method="POST">
         <button type="submit" class="btn btn--primary" tabindex="-1">Get It · $27</button>
