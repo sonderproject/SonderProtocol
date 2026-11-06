@@ -444,6 +444,16 @@ html[data-bonus="off"] .kit { grid-template-columns: 1fr; }
 .cta__stake { margin: 22px auto 0; max-width: 620px; font-family: var(--font-display); font-size: clamp(1.25rem, 2.2vw, 1.7rem); font-weight: 600; line-height: 1.3; color: var(--orange); }
 .kit__stake { flex-basis: 100%; margin: 0 0 4px; font-size: 1rem; color: var(--text-2); }
 
+/* Sale */
+.price__was { align-self: center; font-family: var(--font-display); font-size: 1.6rem; font-weight: 500; color: var(--text-3); text-decoration: line-through; text-decoration-color: var(--red); text-decoration-thickness: 2px; }
+.price__note { display: flex; flex-direction: column; gap: 4px; }
+.sale-tag { color: var(--orange); letter-spacing: 0.12em; }
+.sale-line { display: block; margin-top: 18px; line-height: 1.6; font-size: 0.74rem; letter-spacing: 0.06em; color: var(--text-2); }
+.sale-line strong { color: var(--orange); font-weight: 500; }
+.sale-line s, .statusbar s { color: var(--text-3); }
+.sale-line .dot { margin-right: 8px; vertical-align: 1px; }
+.kit__total .price__was { font-size: 1.3rem; }
+
 /* Field knowledge */
 .intel { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
 .intel__item { position: relative; background: var(--bg); padding: 30px 24px 32px; transition: background var(--t-med) var(--ease); }
