@@ -33,3 +33,12 @@ Bonus content is hidden until switched on.
 1. Upload the bonus PDF to the same private Blob store. Its filename must contain `buy-list`, `buylist`, `buy list` or `bonus` (e.g. `sonder-buy-list.pdf`). Any other PDF is treated as the Playbook. Optional overrides: `BONUS_BLOB_PATHNAME`, `PDF_BLOB_PATHNAME`.
 2. In `index.html` and `success.html`, change `<html lang="en" data-bonus="off">` to `data-bonus="on"`.
 3. Push to `main`. The success page then shows a second download button (`/api/download?session_id=...&file=bonus`).
+
+## Gear page (Amazon Associates)
+
+`/gear` lists recommended products with Amazon Associates links (tracking ID `sonderprotoco-20`).
+
+- Edit products in `tools/build_gear.py`, then run `python3 tools/build_gear.py` to regenerate `gear.html`.
+- Links are tagged Amazon searches for each exact model. To point at an exact product page, add the SiteStripe link (must keep `?tag=sonderprotoco-20`).
+- Amazon does not allow Associates links inside PDFs or e-books. The paid Buy List PDF must link to `/gear`, never directly to Amazon.
+- Keep the Associates disclosure on any page with Amazon links.
