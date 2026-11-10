@@ -118,7 +118,7 @@ def build():
     # Reuse the homepage <head> fonts/styles and the header block so the page always matches.
     head_links = index[index.index('<link rel="icon"'):index.index('<link rel="preload"')]
     header = index[index.index('  <header class="site-header"'):index.index('  </header>') + len('  </header>')]
-    header = header.replace('href="#inside"', 'href="/#inside"').replace('href="#kit"', 'href="/#kit"') \
+    header = header.replace('href="#calc"', 'href="/#calc"').replace('href="#inside"', 'href="/#inside"').replace('href="#kit"', 'href="/#kit"') \
                    .replace('href="#faq"', 'href="/#faq"').replace('href="#buy"', 'href="/#buy"').replace('href="#top"', 'href="/"')
 
     jump = "\n".join(f'          <a href="#{cid}">{escape(title)}</a>' for cid, title, _, _ in PRODUCTS)

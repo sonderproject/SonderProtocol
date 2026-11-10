@@ -16,7 +16,7 @@
   const fine = window.matchMedia("(pointer: fine)").matches;
   const calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (fine && !calm && typeof window.Lenis === "function") {
-    const lenis = new window.Lenis({ lerp: 0.085, smoothWheel: true, wheelMultiplier: 1 });
+    const lenis = new window.Lenis({ lerp: 0.16, smoothWheel: true, wheelMultiplier: 1.15 });
     const raf = (t) => { lenis.raf(t); requestAnimationFrame(raf); };
     requestAnimationFrame(raf);
     document.addEventListener("click", (e) => {
@@ -26,7 +26,7 @@
       const target = id === "#top" ? 0 : (id.length > 1 && document.querySelector(id));
       if (target === null || target === false) return;
       e.preventDefault();
-      lenis.scrollTo(target, { offset: -72, duration: 1.4 });
+      lenis.scrollTo(target, { offset: -72, duration: 0.8 });
     });
   }
 
@@ -61,7 +61,7 @@
         if (!entry.isIntersecting) return;
         const el = entry.target;
         const siblings = Array.from(el.parentElement.children).filter((c) => c.classList.contains("reveal"));
-        el.style.transitionDelay = Math.min(siblings.indexOf(el), 6) * 70 + "ms";
+        el.style.transitionDelay = Math.min(siblings.indexOf(el), 4) * 40 + "ms";
         el.classList.add("is-in");
         io.unobserve(el);
       });
@@ -86,6 +86,41 @@
       return true;
     };
     if (tickSale()) { const t = setInterval(() => { if (!tickSale()) clearInterval(t); }, 1000); }
+  }
+
+  // --- Live alert summary (status strip, Free Tools card, Right Now panel) ---
+  const liveCount = document.querySelectorAll("[data-live-count]");
+  const liveTop = document.querySelectorAll("[data-live-top]");
+  const liveStrip = document.querySelector("[data-live-strip]");
+  if (liveCount.length || liveTop.length || liveStrip) {
+    const RANK = { Extreme: 4, Severe: 3, Moderate: 2, Minor: 1, Unknown: 0 };
+    const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+    fetch("/api/alerts", { headers: { Accept: "application/json" } })
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((d) => {
+        const n = d.statesWithAlerts || 0;
+        liveCount.forEach((el) => (el.textContent = n));
+        if (liveStrip) liveStrip.innerHTML = n ? `ALERTS ACTIVE IN <strong class="t-orange">${n}</strong> STATES` : "NO MAJOR ALERTS · LIVE MAP";
+        // Most severe event types, grouped by event with the states that have them.
+        const byEvent = new Map();
+        for (const [code, st] of Object.entries(d.states || {})) {
+          for (const a of st.alerts || []) {
+            const e = byEvent.get(a.event) || { event: a.event, sev: a.severity, states: new Set() };
+            e.states.add(code);
+            if (RANK[a.severity] > RANK[e.sev]) e.sev = a.severity;
+            byEvent.set(a.event, e);
+          }
+        }
+        const top = [...byEvent.values()].sort((a, b) => RANK[b.sev] - RANK[a.sev] || b.states.size - a.states.size).slice(0, 3);
+        const html = top.length
+          ? top.map((e) => `<li><i class="lv lv--${esc(e.sev)}"></i><span>${esc(e.event)}</span><em>${esc([...e.states].slice(0, 4).join(", "))}${e.states.size > 4 ? " +" + (e.states.size - 4) : ""}</em></li>`).join("")
+          : "<li><i class=\"lv lv--Clear\"></i><span>No major alerts right now. The best time to prepare.</span></li>";
+        liveTop.forEach((el) => (el.innerHTML = html));
+      })
+      .catch(() => {
+        liveCount.forEach((el) => (el.textContent = "Live"));
+        liveTop.forEach((el) => (el.innerHTML = "<li><span>Open the map for current alerts.</span></li>"));
+      });
   }
 
   // --- Sticky buy bar: show after the hero, hide at the final CTA ---

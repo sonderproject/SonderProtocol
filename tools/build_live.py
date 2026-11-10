@@ -24,7 +24,7 @@ def build():
     index = (root / "index.html").read_text()
     head_links = index[index.index('<link rel="icon"'):index.index('<link rel="preload"')]
     header = index[index.index('  <header class="site-header"'):index.index('  </header>') + len('  </header>')]
-    for anchor in ("#inside", "#kit", "#faq", "#buy"):
+    for anchor in ("#inside", "#kit", "#faq", "#buy", "#calc"):
         header = header.replace(f'href="{anchor}"', f'href="/{anchor}"')
     header = header.replace('href="#top"', 'href="/"')
 
