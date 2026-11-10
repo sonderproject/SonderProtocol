@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Live Weather Alert Map — Sonder Protocol</title>
-  <meta name="description" content="Live map of active National Weather Service alerts across the United States: winter storms, hurricanes, floods, heat, and fire weather, updated every few minutes." />
+  <title>Live Alert &amp; Power Outage Map — Sonder Protocol</title>
+  <meta name="description" content="Live US map of active National Weather Service alerts and power outages reported by utilities, updated every few minutes." />
   <meta name="theme-color" content="#06080a" />
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -55,21 +55,18 @@
       <div class="container live-hero__inner">
         <p class="pill reveal"><span class="pill__dot"></span>Live Conditions</p>
         <h1 class="block__title reveal">What's happening<br /><span class="muted">across the country, right now.</span></h1>
-        <p class="live-hero__sub reveal">Active National Weather Service alerts by state: winter storms, hurricanes, floods, extreme heat, and fire weather. Tap a state to see what's in effect.</p>
+        <p class="live-hero__sub reveal">Weather alerts and reported power outages, state by state. Tap a state for details.</p>
       </div>
     </section>
 
     <section class="live">
       <div class="container">
+        <div class="live__modes seg" role="tablist" aria-label="Map layer">
+          <button type="button" role="tab" data-mode="alerts" class="is-on" aria-selected="true">Weather alerts</button><button type="button" role="tab" data-mode="outages" aria-selected="false">Power outages</button>
+        </div>
         <div class="live__bar">
-          <p class="live__status" data-live-status><span class="dot dot--orange pulse"></span>Loading live alerts…</p>
-          <ul class="live__legend" aria-label="Alert level legend">
-            <li><i class="lv lv--Extreme"></i>Extreme</li>
-            <li><i class="lv lv--Severe"></i>Severe</li>
-            <li><i class="lv lv--Moderate"></i>Moderate</li>
-            <li><i class="lv lv--Minor"></i>Minor</li>
-            <li><i class="lv lv--Clear"></i>No alerts</li>
-          </ul>
+          <p class="live__status" data-live-status><span class="dot dot--orange pulse"></span>Loading live data…</p>
+          <ul class="live__legend" data-live-legend aria-label="Map legend"></ul>
         </div>
 
         <div class="live__layout">
@@ -135,7 +132,7 @@
           </aside>
         </div>
 
-        <p class="live__note">Source: National Weather Service (api.weather.gov), refreshed every 5 minutes. For emergencies, follow your local officials and call 911. Power outage data is not shown.</p>
+        <p class="live__note" data-live-note>Source: National Weather Service (api.weather.gov), refreshed every 5 minutes. For emergencies, follow local officials and call 911.</p>
       </div>
     </section>
 
@@ -152,7 +149,7 @@
 
   <footer class="footer">
     <div class="container footer__base">
-      <span>© <span data-year>2026</span> Sonder Protocol. Alert data: National Weather Service.</span>
+      <span>© <span data-year>2026</span> Sonder Protocol. Data: National Weather Service; U.S. Department of Energy ODIN.</span>
       <span class="mono"><a href="/">Home</a> · <a href="/gear">Gear</a> · <a href="/live">Live Map</a></span>
     </div>
   </footer>

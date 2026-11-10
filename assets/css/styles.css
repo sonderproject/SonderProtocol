@@ -573,7 +573,9 @@ html[data-bonus="off"] .kit { grid-template-columns: 1fr; }
 .live-hero__sub { margin-top: 20px; font-size: 1.05rem; color: var(--text-2); }
 .live { padding: 0 0 clamp(72px, 9vw, 120px); }
 .live__bar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; margin-bottom: 16px; }
-.live__status { display: inline-flex; align-items: center; gap: 10px; font-size: 0.82rem; color: var(--text-2); }
+.live__status { font-size: 0.82rem; color: var(--text-2); line-height: 1.6; }
+.live__status .dot { margin-right: 8px; vertical-align: 1px; }
+.live__status strong { color: var(--text); font-weight: 500; }
 .live__legend { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-3); }
 .live__legend li { display: inline-flex; align-items: center; gap: 8px; }
 .lv { display: inline-block; width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
@@ -613,6 +615,14 @@ html[data-bonus="off"] .kit { grid-template-columns: 1fr; }
 .live__cta { display: inline-flex; margin-top: 16px; margin-right: 14px; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--orange-soft); }
 .live__cta--ghost { color: var(--teal-soft); }
 .live__note { margin-top: 18px; font-size: 0.74rem; color: var(--text-3); }
+.live__modes { margin-bottom: 18px; }
+.live__modes button { padding: 10px 20px; font-size: 0.86rem; }
+.lv--NoData { background: repeating-linear-gradient(45deg, rgba(255,255,255,0.14) 0 2px, transparent 2px 5px); border: 1px solid var(--line-strong); }
+.tile-state[data-level="NoData"] { color: var(--text-3); background: repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0 2px, transparent 2px 6px); border-style: dashed; }
+.live__big { margin: 2px 0 10px; font-size: 0.95rem; color: var(--text-2); }
+.live__big strong { display: block; font-family: var(--font-display); font-size: 2.6rem; font-weight: 300; line-height: 1.1; color: var(--text); }
+.live__sub { margin: 18px 0 10px; }
+.live__detail .now__list li { font-size: 0.86rem; }
 @media (max-width: 1080px) {
   .calc { grid-template-columns: minmax(0, 1fr); }
   .calc__in { border-right: 0; border-bottom: 1px solid var(--line); }
