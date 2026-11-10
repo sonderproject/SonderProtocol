@@ -1,5 +1,12 @@
 {
   "rewrites": [
-    { "source": "/gear", "destination": "/gear.html" }
+    {
+      "source": "/gear",
+      "destination": "/gear.html"
+    },
+    {
+      "source": "/live",
+      "destination": "/live.html"
+    }
   ]
 }
