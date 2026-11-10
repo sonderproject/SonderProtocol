@@ -3,3 +3,5 @@ node_modules/
 .env*
 # Paid product files must never be committed — this repo is public.
 *.pdf
+__pycache__/
+*.pyc
