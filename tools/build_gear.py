@@ -67,6 +67,38 @@ PRODUCTS = [
 ]
 
 
+# Exact Amazon product IDs (ASINs), cross-checked against multiple listings (Nov 2026).
+# Products not listed here fall back to a tagged search for the exact model.
+# "check" = single-source or variant risk: spot-check these first.
+ASINS = {
+    "Reliance Aqua-Tainer 7 Gallon": "B001QC31G6",
+    "WaterBOB Bathtub Emergency Water Storage": "B001AXLUX2",
+    "Sawyer Squeeze Water Filter": "B00B1OSU4W",              # check
+    "LifeStraw Personal Water Filter": "B006QF3TW4",
+    "Katadyn Micropur Purification Tablets": "B0007U017U",
+    "Black Diamond Spot 400-R Headlamp": "B09NQK87MN",
+    "Goal Zero Lighthouse 600 Lantern": "B08HRM4J8Y",
+    "Midland ER310 Emergency Crank Weather Radio": "B015QIC1PW",
+    "FosPower A1 Emergency Weather Radio": "B07FKYHTWP",
+    "Midland GXT1000VP4 GMRS Radio": "B001WMFYH4",
+    "Anker SOLIX C1000 Gen 2 Portable Power Station": "B0FN7MSY4L",  # check
+    "Jackery Explorer 300 Portable Power Station": "B082TMBYR6",
+    "EcoFlow River 2 Portable Power Station": "B0B8MXPRDB",
+    "EcoFlow DELTA Pro 3": "B0DDKP47PY",                        # check
+    "First Alert CO400 Battery Carbon Monoxide Detector": "B000N8OYXI",
+    "Mr. Heater Portable Buddy MH9BX": "B000JT7IGQ",            # check
+    "Coleman Classic Propane 2-Burner Stove": "B00005OU9D",
+    "Gas One GS-3400P Dual Fuel Stove": "B01HQRD8EO",           # check
+    "First Aid Only 298 Piece First Aid Kit": "B000069EYA",
+    "Reliance Luggable Loo Portable Toilet": "B000FIAPXO",
+}
+
+
+def amazon_link(name: str) -> str:
+    asin = ASINS.get(name)
+    return f"https://www.amazon.com/dp/{asin}?tag={TAG}" if asin else amazon_search(name)
+
+
 def amazon_search(name: str) -> str:
     return f"https://www.amazon.com/s?k={quote_plus(name)}&tag={TAG}"
 
@@ -76,7 +108,7 @@ def card(name, role, why):
             <span class="tag{' tag--orange' if role.lower() in ('our pick', 'non-negotiable') else ''}">{escape(role)}</span>
             <h3>{escape(name)}</h3>
             <p>{escape(why)}</p>
-            <a class="gear-card__link" href="{escape(amazon_search(name))}" target="_blank" rel="sponsored nofollow noopener">Shop on Amazon <span class="btn__arrow">→</span></a>
+            <a class="gear-card__link" href="{escape(amazon_link(name))}" target="_blank" rel="sponsored nofollow noopener">Shop on Amazon <span class="btn__arrow">→</span></a>
           </article>'''
 
 
@@ -164,7 +196,11 @@ def build():
 '''
     (root / "gear.html").write_text(html)
     n = sum(len(c[3]) for c in PRODUCTS)
-    print(f"gear.html written: {len(PRODUCTS)} categories, {n} products, tag={TAG}")
+    names = [it[0] for c in PRODUCTS for it in c[3]]
+    unknown = [k for k in ASINS if k not in names]
+    assert not unknown, f"ASINS keys not in PRODUCTS: {unknown}"
+    exact = sum(1 for nm in names if nm in ASINS)
+    print(f"gear.html written: {len(PRODUCTS)} categories, {n} products ({exact} exact, {n - exact} search), tag={TAG}")
 
 
 if __name__ == "__main__":
