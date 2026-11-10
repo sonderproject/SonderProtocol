@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/gear/kit",
+      "destination": "/gear-kit.html"
+    },
+    {
       "source": "/gear",
       "destination": "/gear.html"
     },
