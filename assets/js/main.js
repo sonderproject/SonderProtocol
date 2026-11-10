@@ -1,4 +1,4 @@
-/* Sonder Protocol — site interactions. No dependencies. */
+/* Sonder Protocol — site interactions. Optional dependency: Lenis (smooth scroll, desktop only). */
 (() => {
   "use strict";
 
@@ -10,6 +10,24 @@
     };
     tick();
     setInterval(tick, 1000);
+  }
+
+  // --- Smooth scroll (Lenis) on desktop pointers only; native scroll on touch ---
+  const fine = window.matchMedia("(pointer: fine)").matches;
+  const calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (fine && !calm && typeof window.Lenis === "function") {
+    const lenis = new window.Lenis({ lerp: 0.085, smoothWheel: true, wheelMultiplier: 1 });
+    const raf = (t) => { lenis.raf(t); requestAnimationFrame(raf); };
+    requestAnimationFrame(raf);
+    document.addEventListener("click", (e) => {
+      const a = e.target.closest('a[href^="#"]');
+      if (!a) return;
+      const id = a.getAttribute("href");
+      const target = id === "#top" ? 0 : (id.length > 1 && document.querySelector(id));
+      if (target === null || target === false) return;
+      e.preventDefault();
+      lenis.scrollTo(target, { offset: -72, duration: 1.4 });
+    });
   }
 
   // --- Footer year ---

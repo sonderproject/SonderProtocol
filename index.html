@@ -14,119 +14,134 @@
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="preload" as="image" href="assets/img/protocol-001-mockup.webp" type="image/webp" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- ============ STATUS BAR ============ -->
-  <div class="statusbar" role="status">
-    <div class="container statusbar__inner">
-      <span class="statusbar__item"><span class="dot dot--orange pulse"></span>STATUS: <strong class="t-orange">ELEVATED</strong></span>
-      <span class="statusbar__item hide-sm">PROTOCOL 001: <strong class="t-teal">AVAILABLE NOW</strong></span>
-      <span class="statusbar__item" data-sale>SALE <s>$27</s> <strong class="t-orange">$20</strong><span class="hide-sm">&nbsp;· ENDS IN <strong class="t-orange" data-sale-countdown>--</strong></span></span>
-      <span class="statusbar__item statusbar__clock hide-sm" data-clock>UTC --:--:--</span>
+  <!-- ============ HEADER: status strip + glass nav ============ -->
+  <header class="site-header" data-nav>
+    <div class="statusbar" role="status">
+      <div class="container statusbar__inner">
+        <span class="statusbar__item"><span class="dot dot--orange pulse"></span>STATUS <strong class="t-orange">ELEVATED</strong></span>
+        <span class="statusbar__item" data-sale>SALE <s>$27</s> <strong class="t-orange">$20</strong><span class="hide-sm">&nbsp;· ENDS IN <strong class="t-orange" data-sale-countdown>--</strong></span></span>
+        <span class="statusbar__item statusbar__clock hide-sm" data-clock>UTC --:--:--</span>
+      </div>
     </div>
-  </div>
-
-  <!-- ============ NAV ============ -->
-  <header class="nav" data-nav>
-    <div class="container nav__inner">
-      <a href="#top" class="brand" aria-label="Sonder Protocol home">
-        <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true">
-          <rect x="1" y="1" width="30" height="30" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
-          <path d="M8 22 L16 8 L24 22" fill="none" stroke="currentColor" stroke-width="1.5"/>
-          <circle cx="16" cy="18" r="2" fill="var(--teal)"/>
-        </svg>
-        <span class="brand__name">SONDER<span class="brand__sep">/</span>PROTOCOL</span>
-      </a>
-      <nav class="nav__links" aria-label="Primary">
-        <a href="#inside">What's Inside</a>
-        <a href="#kit">What You Get</a>
-        <a href="#faq">FAQ</a>
-      </nav>
-      <a href="#buy" class="btn btn--sm btn--primary nav__cta">Get It · $20</a>
-      <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle>
-        <span></span><span></span>
-      </button>
+    <div class="nav">
+      <div class="container nav__inner">
+        <a href="#top" class="brand" aria-label="Sonder Protocol home">
+          <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true">
+            <rect x="1" y="1" width="30" height="30" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M8 22 L16 8 L24 22" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="16" cy="18" r="2" fill="var(--teal)"/>
+          </svg>
+          <span class="brand__name">SONDER<span class="brand__sep"></span><span class="brand__sub">PROTOCOL</span></span>
+        </a>
+        <nav class="nav__links" aria-label="Primary">
+          <a href="#inside">What's Inside</a>
+          <a href="#kit">What You Get</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <a href="#buy" class="btn btn--primary btn--sm nav__cta">Get It · $20</a>
+        <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle>
+          <span></span><span></span>
+        </button>
+      </div>
     </div>
   </header>
 
   <main id="main">
 
-    <!-- ============ HERO: THE PRODUCT ============ -->
-    <section class="hero hero--product" id="top" data-hero>
-      <div class="hero__grid" aria-hidden="true"></div>
-      <div class="hero__noise" aria-hidden="true"></div>
-      <div class="hero__scan" aria-hidden="true"></div>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top" data-hero>
+      <div class="aurora" aria-hidden="true"></div>
+      <div class="grain" aria-hidden="true"></div>
 
-      <div class="container pd">
-        <div class="pd__copy">
-          <p class="eyebrow"><span class="dot dot--teal"></span>Protocol 001 · The Blackout Kit</p>
-          <h1 class="pd__title">When the power goes out, <span class="hero__title-accent">know exactly what to do.</span></h1>
-          <p class="pd__sub">The field knowledge seasoned survivalists rely on, organized into one 42-page plan: exactly how much your household needs, what to buy first, and what to do hour by hour.</p>
+      <div class="hero__rail" aria-hidden="true">
+        <span>Protocol 001</span>
+        <i></i>
+        <span class="t-teal">30 Days · 42 Pages</span>
+      </div>
 
-          <ul class="ticks">
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <p class="pill reveal"><span class="pill__dot"></span>Protocol 001 · The Blackout Kit</p>
+          <h1 class="hero__title reveal">When the power goes out,<br /><span class="shimmer">know exactly what to do.</span></h1>
+          <p class="hero__sub reveal">The field knowledge seasoned survivalists rely on, organized into one <strong>42-page plan</strong>: exactly how much your household needs, what to buy first, and what to do hour by hour.</p>
+
+          <ul class="ticks reveal">
             <li>42-page PDF, instant download</li>
             <li>Printable worksheets</li>
             <li>Built on survivalist field experience</li>
             <li>Works offline, on paper</li>
           </ul>
 
-          <p class="bonus-badge mono" data-bonus-only><span class="bonus-badge__tag">+ FREE BONUS</span>The Sonder Buy List: exactly what to buy, with links</p>
+          <p class="bonus-badge reveal" data-bonus-only><span class="bonus-badge__tag">+ Free bonus</span>The Sonder Buy List: exactly what to buy, with links</p>
 
-          <div class="pd__buy">
-            <div class="price"><span class="price__was" aria-label="Regular price $27">$27</span><span class="price__amount">$20</span><span class="price__note mono"><span class="sale-tag">SALE · SAVE $7</span>ONE-TIME</span></div>
-            <form action="/api/checkout" method="POST" class="pd__form">
-              <button type="submit" class="btn btn--primary btn--xl">Get the Kit <span class="btn__arrow">→</span></button>
+          <div class="hero__buy reveal">
+            <div class="price">
+              <span class="price__was" aria-label="Regular price $27">$27</span>
+              <span class="price__amount">$20</span>
+              <span class="price__note"><span class="sale-tag">Sale · Save $7</span>One-time</span>
+            </div>
+            <form action="/api/checkout" method="POST" class="hero__form">
+              <button type="submit" class="btn btn--primary btn--lg shine">Get the Kit <span class="btn__arrow">→</span></button>
             </form>
           </div>
-          <p class="sale-line mono" data-sale><span class="dot dot--orange pulse"></span>Sale ends in <strong data-sale-countdown>--</strong>. Then back to $27.</p>
-          <p class="fine mono" data-checkout-msg aria-live="polite">Secure checkout by Stripe · Digital product · All sales final</p>
+          <p class="sale-line reveal" data-sale><span class="dot dot--orange pulse"></span>Sale ends in <strong data-sale-countdown>--</strong>. Then back to $27.</p>
+          <p class="fine" data-checkout-msg aria-live="polite">Secure checkout by Stripe · Digital product · All sales final</p>
         </div>
 
-        <figure class="pd__media">
+        <figure class="hero__media reveal">
+          <div class="hero__glow" aria-hidden="true"></div>
           <picture>
             <source srcset="assets/img/protocol-001-mockup.webp" type="image/webp" />
             <img src="assets/img/protocol-001-mockup.jpg" width="1200" height="1200" fetchpriority="high"
                  alt="The 30-Day Blackout Playbook field manual with printable readiness worksheets" />
           </picture>
-          <figcaption class="pd__badge mono"><span class="dot dot--orange"></span>PROTOCOL READY</figcaption>
+          <figcaption class="hero__badge"><span class="dot dot--orange"></span>Protocol ready</figcaption>
         </figure>
       </div>
 
-      <div class="hero__ticker" aria-hidden="true">
-        <div class="ticker">
-          <span>GRID FAILURE</span><span>EXTREME WEATHER</span><span>SUPPLY SHORTAGES</span><span>COMMS OUTAGES</span><span>WATER DISRUPTION</span><span>CYBER ATTACKS</span>
-          <span>GRID FAILURE</span><span>EXTREME WEATHER</span><span>SUPPLY SHORTAGES</span><span>COMMS OUTAGES</span><span>WATER DISRUPTION</span><span>CYBER ATTACKS</span>
-        </div>
-      </div>
+      <a href="#field" class="hero__scroll" aria-label="Scroll to content"><span>Scroll</span><i></i></a>
     </section>
 
-    <!-- ============ FIELD KNOWLEDGE ============ -->
+    <!-- ============ MARQUEE ============ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Grid Failure</span><span>Extreme Weather</span><span>Supply Shortages</span><span>Comms Outages</span><span>Water Disruption</span><span>Cyber Attacks</span>
+        <span>Grid Failure</span><span>Extreme Weather</span><span>Supply Shortages</span><span>Comms Outages</span><span>Water Disruption</span><span>Cyber Attacks</span>
+      </div>
+    </div>
+
+    <!-- ============ 01 FIELD KNOWLEDGE ============ -->
     <section class="block" id="field">
       <div class="container">
         <header class="block__head">
-          <p class="kicker"><span class="kicker__num">01</span>Field Knowledge</p>
+          <p class="label reveal"><span class="label__n">01</span><i class="label__rule"></i><span>Field Knowledge</span></p>
           <h2 class="block__title reveal">The details most people learn too late.<br /><span class="muted">Written down before you need them.</span></h2>
         </header>
-        <div class="intel">
-          <div class="intel__item reveal"><span class="intel__q mono">HOW MUCH, EXACTLY</span><p>Water and food math for your household size, down to the gallon and the meal.</p></div>
-          <div class="intel__item reveal"><span class="intel__q mono">WHAT TO BUY FIRST</span><p>A staged purchase plan so every dollar goes where it matters most.</p></div>
-          <div class="intel__item reveal"><span class="intel__q mono">WHAT TO DO, AND WHEN</span><p>The first 30 minutes, the first 48 hours, and the rhythm that gets you to day 30.</p></div>
-          <div class="intel__item reveal"><span class="intel__q mono">WHEN TO LEAVE</span><p>A stay-or-go decision card for the moment staying stops being safe.</p></div>
+        <div class="panel intel reveal">
+          <div class="intel__item"><span class="intel__q">How much, exactly</span><p>Water and food math for your household size, down to the gallon and the meal.</p></div>
+          <div class="intel__item"><span class="intel__q">What to buy first</span><p>A staged purchase plan so every dollar goes where it matters most.</p></div>
+          <div class="intel__item"><span class="intel__q">What to do, and when</span><p>The first 30 minutes, the first 48 hours, and the rhythm that gets you to day 30.</p></div>
+          <div class="intel__item"><span class="intel__q">When to leave</span><p>A stay-or-go decision card for the moment staying stops being safe.</p></div>
         </div>
       </div>
     </section>
 
-    <!-- ============ WHAT'S INSIDE ============ -->
+    <!-- ============ 02 WHAT'S INSIDE ============ -->
     <section class="block" id="inside">
       <div class="container">
-        <header class="block__head">
-          <p class="kicker"><span class="kicker__num">02</span>What's Inside</p>
-          <h2 class="block__title reveal">42 pages. One download.</h2>
+        <header class="block__head block__head--split">
+          <div>
+            <p class="label reveal"><span class="label__n">02</span><i class="label__rule"></i><span>What's Inside</span></p>
+            <h2 class="block__title reveal">42 pages.<br /><span class="muted">One download.</span></h2>
+          </div>
+          <p class="block__lede reveal">Four systems in one field manual, built to be printed and followed when the lights are out and your phone is dead.</p>
         </header>
 
         <div class="tiles">
@@ -159,47 +174,50 @@
               <source srcset="assets/img/inside-cover.webp" type="image/webp" />
               <img src="assets/img/inside-cover.jpg" width="870" height="882" loading="lazy" alt="Cover page of The 30-Day Blackout Playbook" />
             </picture>
-            <figcaption class="mono">THE PLAYBOOK</figcaption>
+            <figcaption>The Playbook</figcaption>
           </figure>
           <figure class="peek__item reveal">
             <picture>
               <source srcset="assets/img/inside-water.webp" type="image/webp" />
               <img src="assets/img/inside-water.jpg" width="747" height="896" loading="lazy" alt="Water per person page with 3, 14 and 30-day gallon targets by household size" />
             </picture>
-            <figcaption class="mono">WATER / PER PERSON</figcaption>
+            <figcaption>Water / Per Person</figcaption>
           </figure>
           <figure class="peek__item reveal">
             <picture>
               <source srcset="assets/img/inside-do-dont.webp" type="image/webp" />
               <img src="assets/img/inside-do-dont.jpg" width="727" height="905" loading="lazy" alt="What to do and what not to do during an outage page" />
             </picture>
-            <figcaption class="mono">WHAT TO DO / NOT DO</figcaption>
+            <figcaption>What To Do / Not Do</figcaption>
           </figure>
         </div>
       </div>
     </section>
 
-    <!-- ============ WHY NOW ============ -->
-    <section class="block block--alt" id="why">
+    <!-- ============ 03 WHY NOW ============ -->
+    <section class="block" id="why">
       <div class="container">
-        <header class="block__head">
-          <p class="kicker"><span class="kicker__num">03</span>Why Now</p>
-          <h2 class="block__title reveal">Outages are getting longer.<br /><span class="muted">Most homes have no plan.</span></h2>
-        </header>
-        <div class="why">
-          <div class="why__item reveal"><span class="level level--high">GRID</span><p>Aging infrastructure fails under peak load.</p></div>
-          <div class="why__item reveal"><span class="level level--high">WEATHER</span><p>Storms, heat, and fires knock out power for days.</p></div>
-          <div class="why__item reveal"><span class="level level--elevated">SUPPLY</span><p>Store shelves empty within days of a shock.</p></div>
-          <div class="why__item reveal"><span class="level level--monitor">COMMS</span><p>No power means no cell, no internet, no updates.</p></div>
+        <div class="panel panel--dark why reveal">
+          <div class="aurora aurora--soft" aria-hidden="true"></div>
+          <div class="why__head">
+            <p class="label"><span class="label__n">03</span><i class="label__rule"></i><span>Why Now</span></p>
+            <h2 class="block__title">Outages are getting longer.<br /><span class="muted">Most homes have no plan.</span></h2>
+          </div>
+          <div class="why__grid">
+            <div class="why__item"><span class="level level--high">Grid</span><p>Aging infrastructure fails under peak load.</p></div>
+            <div class="why__item"><span class="level level--high">Weather</span><p>Storms, heat, and fires knock out power for days.</p></div>
+            <div class="why__item"><span class="level level--elevated">Supply</span><p>Store shelves empty within days of a shock.</p></div>
+            <div class="why__item"><span class="level level--monitor">Comms</span><p>No power means no cell, no internet, no updates.</p></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ HOW IT WORKS ============ -->
+    <!-- ============ 04 HOW IT WORKS ============ -->
     <section class="block" id="how">
       <div class="container">
         <header class="block__head">
-          <p class="kicker"><span class="kicker__num">04</span>How It Works</p>
+          <p class="label reveal"><span class="label__n">04</span><i class="label__rule"></i><span>How It Works</span></p>
           <h2 class="block__title reveal">Ready in an afternoon.</h2>
         </header>
         <ol class="steps">
@@ -210,11 +228,11 @@
       </div>
     </section>
 
-    <!-- ============ EVERYTHING YOU GET ============ -->
+    <!-- ============ 05 EVERYTHING YOU GET ============ -->
     <section class="block" id="kit">
       <div class="container">
         <header class="block__head">
-          <p class="kicker"><span class="kicker__num">05</span>Everything You Get</p>
+          <p class="label reveal"><span class="label__n">05</span><i class="label__rule"></i><span>Everything You Get</span></p>
           <h2 class="block__title reveal">Done for you.<br /><span class="muted">Nothing left to figure out.</span></h2>
         </header>
         <div class="kit">
@@ -224,7 +242,7 @@
               <img src="assets/img/protocol-001-mockup.jpg" width="1200" height="1200" loading="lazy" alt="" />
             </picture>
             <div class="kit__body">
-              <span class="tag">INCLUDED</span>
+              <span class="tag">Included</span>
               <h3>The 30-Day Blackout Playbook</h3>
               <p>42-page household field manual: exact quantities, a staged buying plan, hour-by-hour outage procedures, safety, and the stay-or-go card.</p>
             </div>
@@ -234,25 +252,28 @@
               <svg viewBox="0 0 24 24"><path d="M3 4h2l2.5 11h11L21 7H6.5 M9 20h.01 M17 20h.01"/></svg>
             </div>
             <div class="kit__body">
-              <span class="tag tag--orange">FREE BONUS</span>
+              <span class="tag tag--orange">Free bonus</span>
               <h3>The Sonder Buy List</h3>
               <p>A curated list of exactly what to buy, how many, and in what order, with direct links. Nothing left to research.</p>
             </div>
           </article>
         </div>
-        <div class="kit__total reveal">
+        <div class="panel panel--dark kit__total reveal">
+          <div class="aurora aurora--soft" aria-hidden="true"></div>
           <p class="kit__stake">Less than a tank of gas, for the plan that could keep your family safe when it matters most.</p>
-          <div><span class="mono muted">TOTAL TODAY</span><span class="price__was">$27</span><span class="kit__price">$20</span><span class="mono muted">ONE-TIME · INSTANT DOWNLOAD</span></div>
-          <form action="/api/checkout" method="POST"><button type="submit" class="btn btn--primary btn--xl">Get the Blackout Kit <span class="btn__arrow">→</span></button></form>
+          <div class="kit__row">
+            <div class="kit__sum"><span class="kit__label">Total today</span><span class="price__was">$27</span><span class="kit__price">$20</span><span class="kit__label">One-time · Instant download</span></div>
+            <form action="/api/checkout" method="POST"><button type="submit" class="btn btn--primary btn--lg shine">Get the Blackout Kit <span class="btn__arrow">→</span></button></form>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ FAQ ============ -->
-    <section class="block block--alt" id="faq">
+    <!-- ============ 06 FAQ ============ -->
+    <section class="block" id="faq">
       <div class="container faq">
         <header class="block__head">
-          <p class="kicker"><span class="kicker__num">06</span>FAQ</p>
+          <p class="label reveal"><span class="label__n">06</span><i class="label__rule"></i><span>FAQ</span></p>
           <h2 class="block__title reveal">Quick answers.</h2>
         </header>
         <div class="faq__list">
@@ -268,18 +289,19 @@
 
     <!-- ============ FINAL CTA ============ -->
     <section class="cta" id="buy">
-      <div class="cta__grid" aria-hidden="true"></div>
+      <div class="aurora" aria-hidden="true"></div>
+      <div class="grain" aria-hidden="true"></div>
       <div class="container cta__inner reveal">
-        <span class="tag tag--teal">PROTOCOL 001 · AVAILABLE NOW</span>
-        <h2 class="cta__title">Don't wait for the outage.</h2>
+        <p class="pill"><span class="pill__dot"></span>Protocol 001 · Available now</p>
+        <h2 class="cta__title">Don't wait for <span class="shimmer">the outage.</span></h2>
         <p class="cta__stake">$20 is a small price for a plan that could save your family's life.</p>
-        <p class="sale-line mono" data-sale><span class="dot dot--orange pulse"></span>Sale price <s>$27</s> $20 · ends in <strong data-sale-countdown>--</strong></p>
+        <p class="sale-line" data-sale><span class="dot dot--orange pulse"></span>Sale price <s>$27</s> $20 · ends in <strong data-sale-countdown>--</strong></p>
         <p class="cta__sub">The Blackout Kit: the 42-page Playbook<span data-bonus-only> + the free Buy List</span>. Instant download.</p>
         <form action="/api/checkout" method="POST" class="cta__form">
-          <button type="submit" class="btn btn--primary btn--xl">Get the Blackout Kit · $20 <span class="btn__arrow">→</span></button>
+          <button type="submit" class="btn btn--primary btn--lg shine">Get the Blackout Kit · $20 <span class="btn__arrow">→</span></button>
         </form>
-        <p class="fine mono">Secure checkout by Stripe · Digital product · All sales final</p>
-        <p class="next mono">COMING NEXT: <span>002 Water &amp; Supplies</span><span>003 Urban Survival</span><span>004 Extended Grid-Down</span></p>
+        <p class="fine">Secure checkout by Stripe · Digital product · All sales final</p>
+        <p class="next">Coming next <span>002 Water &amp; Supplies</span><span>003 Urban Survival</span><span>004 Extended Grid-Down</span></p>
       </div>
     </section>
 
@@ -287,13 +309,13 @@
 
   <!-- ============ STICKY BUY BAR ============ -->
   <div class="buybar" data-buybar aria-hidden="true">
-    <div class="container buybar__inner">
+    <div class="buybar__inner">
       <div class="buybar__info">
         <span class="buybar__name">The Blackout Kit</span>
-        <span class="buybar__meta mono">PLAYBOOK<span data-bonus-only> + FREE BUY LIST</span> · <s>$27</s> $20</span>
+        <span class="buybar__meta">Playbook<span data-bonus-only> + free Buy List</span> · <s>$27</s> $20</span>
       </div>
       <form action="/api/checkout" method="POST">
-        <button type="submit" class="btn btn--primary" tabindex="-1">Get It · $20</button>
+        <button type="submit" class="btn btn--primary btn--sm" tabindex="-1">Get It · $20</button>
       </form>
     </div>
   </div>
@@ -308,10 +330,10 @@
             <path d="M8 22 L16 8 L24 22" fill="none" stroke="currentColor" stroke-width="1.5"/>
             <circle cx="16" cy="18" r="2" fill="var(--teal)"/>
           </svg>
-          <span class="brand__name">SONDER<span class="brand__sep">/</span>PROTOCOL</span>
+          <span class="brand__name">SONDER<span class="brand__sep"></span><span class="brand__sub">PROTOCOL</span></span>
         </a>
         <p>Preparedness systems for everyday households. Prepared, not paranoid.</p>
-        <p class="mono muted small">A Sonder Project company.</p>
+        <p class="footer__small">A Sonder Project company.</p>
       </div>
       <nav class="footer__col" aria-label="Footer">
         <h4>Navigate</h4>
@@ -327,12 +349,14 @@
         <a href="#" aria-label="Sonder Protocol on YouTube (coming soon)">YouTube</a>
       </div>
     </div>
+    <div class="footer__mark" aria-hidden="true">SONDER PROTOCOL</div>
     <div class="container footer__base">
       <span>© <span data-year>2026</span> Sonder Protocol. All rights reserved. Digital products are non-refundable.</span>
-      <span class="mono">SYSTEM STATUS: <span class="t-teal">OPERATIONAL</span></span>
+      <span class="mono">System status <span class="t-teal">Operational</span></span>
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
   <script src="assets/js/main.js" defer></script>
 </body>
 </html>
