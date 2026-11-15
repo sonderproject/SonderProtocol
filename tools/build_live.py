@@ -105,7 +105,7 @@ def build():
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+  <script src="/assets/js/vendor/lenis-1.1.13.min.js" defer></script>
   <script src="assets/js/main.js" defer></script>
   <script src="assets/js/live.js" defer></script>
 </body>

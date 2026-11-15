@@ -81,7 +81,13 @@ async function getPage(offset) {
   throw lastErr;
 }
 
-export async function GET() {
+export async function GET(request) {
+  // These endpoints take no parameters. Strip any query string so random ?x=… values
+  // can't bypass the edge cache and hammer the upstream feed on our function bill.
+  const url = new URL(request.url);
+  if (url.search) {
+    return new Response(null, { status: 308, headers: { Location: url.pathname, "Cache-Control": "public, s-maxage=86400" } });
+  }
   try {
     const first = await getPage(0);
     const total = Math.min(Number(first.total_count) || 0, MAX_RECORDS);

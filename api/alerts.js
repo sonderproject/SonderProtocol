@@ -51,7 +51,13 @@ export function summarize(geojson) {
   return { updated: new Date().toISOString(), source: "National Weather Service (api.weather.gov)", statesWithAlerts: active, states };
 }
 
-export async function GET() {
+export async function GET(request) {
+  // These endpoints take no parameters. Strip any query string so random ?x=… values
+  // can't bypass the edge cache and hammer the upstream feed on our function bill.
+  const url = new URL(request.url);
+  if (url.search) {
+    return new Response(null, { status: 308, headers: { Location: url.pathname, "Cache-Control": "public, s-maxage=86400" } });
+  }
   try {
     const res = await fetch(NWS_URL, { headers: { "User-Agent": USER_AGENT, Accept: "application/geo+json" } });
     if (!res.ok) throw new Error(`NWS responded ${res.status}`);
