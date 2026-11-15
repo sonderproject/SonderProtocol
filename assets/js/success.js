@@ -6,7 +6,7 @@
   const messages = {
     invalid: "This download link is invalid. Use the link from your original purchase page.",
     unpaid: "We couldn't find a completed payment for this link.",
-    expired: "This download link has expired (links last 14 days). Reply to your receipt email and we'll resend it.",
+    expired: "This download link has expired (links last 14 days). Email drsv0913@gmail.com with your receipt and we'll resend it.",
     unavailable: "The download is temporarily unavailable. Please try again in a few minutes.",
   };
   if (error || !sessionId) {

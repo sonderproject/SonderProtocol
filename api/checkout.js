@@ -25,6 +25,11 @@ export async function POST(request) {
       line_items: [lineItem],
       metadata: { product: PRODUCT.id },
       allow_promotion_codes: true,
+      custom_text: {
+        submit: {
+          message: `Instant digital download. All sales are final: no refunds, returns or exchanges. By paying you agree to our Terms of Sale (${origin}/terms) and Privacy Policy (${origin}/privacy).`,
+        },
+      },
       success_url: `${origin}/success.html?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/#buy`,
     });

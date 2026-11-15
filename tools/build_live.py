@@ -101,7 +101,7 @@ def build():
   <footer class="footer">
     <div class="container footer__base">
       <span>© <span data-year>2026</span> Sonder Protocol. Data: National Weather Service; U.S. Department of Energy ODIN.</span>
-      <span class="mono"><a href="/">Home</a> · <a href="/gear">Gear</a> · <a href="/live">Live Map</a></span>
+      <span class="mono"><a href="/">Home</a> · <a href="/gear">Gear</a> · <a href="/live">Live Map</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></span>
     </div>
   </footer>
 

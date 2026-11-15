@@ -303,7 +303,7 @@ def page(root, *, full):
   <footer class="footer">
     <div class="container footer__base">
       <span>© <span data-year>2026</span> Sonder Protocol. {escape(DISCLOSURE)}</span>
-      <span class="mono"><a href="/">Home</a> · <a href="/gear">Gear</a> · <a href="/live">Live Map</a></span>
+      <span class="mono"><a href="/">Home</a> · <a href="/gear">Gear</a> · <a href="/live">Live Map</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></span>
     </div>
   </footer>
 
