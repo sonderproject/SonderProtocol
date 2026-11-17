@@ -69,6 +69,7 @@
 
       <div class="container hero__inner">
         <div class="hero__copy">
+          <a class="local-alert" href="/live" data-local-alert hidden><span class="dot dot--orange pulse"></span><span data-local-alert-text></span><span class="local-alert__go" aria-hidden="true">→</span></a>
           <p class="pill reveal"><span class="pill__dot"></span>Protocol 001 · The Blackout Kit</p>
           <h1 class="hero__title reveal">When the power goes out,<br /><span class="shimmer">know exactly what to do.</span></h1>
           <p class="hero__sub reveal">One <strong>42-page household plan</strong>: what to buy, how much, and what to do hour by hour. Prepared, not paranoid.</p>
@@ -92,7 +93,7 @@
           </div>
           <p class="bonus-badge reveal" data-bonus-only><span class="bonus-badge__tag">+ Free bonus</span>The Sonder Buy List: budget kits from $100, with links</p>
           <p class="sale-line reveal" data-sale><span class="dot dot--orange pulse"></span>Sale ends in <strong data-sale-countdown>--</strong>. Then back to $27.</p>
-          <p class="fine" data-checkout-msg aria-live="polite">Secure checkout by Stripe · Instant digital download · <a href="/terms">All sales final</a></p>
+          <p class="fine" data-checkout-msg aria-live="polite">Secure checkout by Stripe · Apple Pay · Instant digital download</p>
         </div>
 
         <figure class="hero__media reveal">
@@ -189,7 +190,8 @@
               <div class="score__bar"><i style="--p:0"></i></div>
               <p><strong data-out="score">0/100</strong> <span data-out="scorelbl">Tick what you have</span></p>
             </div>
-            <a href="#buy" class="btn btn--primary btn--lg shine calc__cta">Get the plan for my household <span class="btn__arrow">→</span></a>
+            <p class="calc__gap" data-out="gap"></p>
+            <a href="#buy" class="btn btn--primary btn--lg shine calc__cta"><span data-out="cta">Get the plan for my household</span> <span class="btn__arrow">→</span></a>
             <p class="calc__fine">Based on the CDC's 1 gallon per person per day, plus ~1 quart per pet.</p>
           </div>
         </div>
@@ -310,7 +312,7 @@
             <div class="kit__sum"><span class="kit__label">Total today</span><span class="price__was" data-was>$27</span><span class="kit__price" data-price>$20</span><span class="kit__label">One-time</span></div>
             <form action="/api/checkout" method="POST"><button type="submit" class="btn btn--primary btn--lg shine">Get the Blackout Kit <span class="btn__arrow">→</span></button></form>
           </div>
-          <p class="fine">Instant digital download · <a href="/terms">All sales final, no refunds</a></p>
+          <p class="fine">Instant digital download · Print-ready worksheets</p>
         </div>
       </div>
     </section>
@@ -357,7 +359,7 @@
     <div class="buybar__inner">
       <div class="buybar__info">
         <span class="buybar__name">The Blackout Kit</span>
-        <span class="buybar__meta">Playbook<span data-bonus-only> + free Buy List</span> · <s data-was>$27</s> <span data-price>$20</span> · Final sale</span>
+        <span class="buybar__meta">Playbook<span data-bonus-only> + free Buy List</span> · <s data-was>$27</s> <span data-price>$20</span></span>
       </div>
       <form action="/api/checkout" method="POST">
         <button type="submit" class="btn btn--primary btn--sm" tabindex="-1"><span data-price>Get It · $20</span></button>

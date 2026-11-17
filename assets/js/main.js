@@ -93,6 +93,34 @@
     if (tickSale()) { const t = setInterval(() => { if (!tickSale()) clearInterval(t); }, 1000); }
   }
 
+  // --- Shared live data request (status strip, tools card, local alert banner) ---
+  const getJSON = (u) => fetch(u, { headers: { Accept: "application/json" } }).then((r) => (r.ok ? r.json() : Promise.reject()));
+  let alertsCache;
+  const alertsReq = { then: (...a) => (alertsCache ||= getJSON("/api/alerts")).then(...a) };
+
+  // --- Local alert banner: "Winter Storm Warning in Texas right now" (homepage hero) ---
+  const localAlert = document.querySelector("[data-local-alert]");
+  if (localAlert) {
+    const NAMES = { AL: "Alabama", AK: "Alaska", AZ: "Arizona", AR: "Arkansas", CA: "California", CO: "Colorado", CT: "Connecticut", DE: "Delaware", DC: "D.C.", FL: "Florida", GA: "Georgia", HI: "Hawaii", ID: "Idaho", IL: "Illinois", IN: "Indiana", IA: "Iowa", KS: "Kansas", KY: "Kentucky", LA: "Louisiana", ME: "Maine", MD: "Maryland", MA: "Massachusetts", MI: "Michigan", MN: "Minnesota", MS: "Mississippi", MO: "Missouri", MT: "Montana", NE: "Nebraska", NV: "Nevada", NH: "New Hampshire", NJ: "New Jersey", NM: "New Mexico", NY: "New York", NC: "North Carolina", ND: "North Dakota", OH: "Ohio", OK: "Oklahoma", OR: "Oregon", PA: "Pennsylvania", RI: "Rhode Island", SC: "South Carolina", SD: "South Dakota", TN: "Tennessee", TX: "Texas", UT: "Utah", VT: "Vermont", VA: "Virginia", WA: "Washington", WV: "West Virginia", WI: "Wisconsin", WY: "Wyoming" };
+    getJSON("/api/where").then(({ region }) => {
+      if (!NAMES[region]) return;
+      let al = null, ou = null;
+      const render = () => {
+        const st = al?.states?.[region];
+        const out = ou?.states?.[region]?.customers || 0;
+        const outTxt = out >= 100 ? `${out.toLocaleString()} customers without power` : "";
+        let text = "";
+        if (st?.count && st.alerts?.[0]) text = `${st.alerts[0].event} in ${NAMES[region]} right now${outTxt ? " · " + outTxt : ""}`;
+        else if (outTxt) text = `${outTxt} in ${NAMES[region]} right now`;
+        if (!text) return;
+        localAlert.querySelector("[data-local-alert-text]").textContent = text;
+        localAlert.hidden = false;
+      };
+      alertsReq.then((d) => { al = d; render(); }, () => {});
+      getJSON("/api/outages").then((d) => { ou = d; render(); }, () => {});
+    }).catch(() => {});
+  }
+
   // --- Live alert summary (status strip, Free Tools card, Right Now panel) ---
   const liveCount = document.querySelectorAll("[data-live-count]");
   const liveTop = document.querySelectorAll("[data-live-top]");
@@ -100,8 +128,7 @@
   if (liveCount.length || liveTop.length || liveStrip) {
     const RANK = { Extreme: 4, Severe: 3, Moderate: 2, Minor: 1, Unknown: 0 };
     const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-    fetch("/api/alerts", { headers: { Accept: "application/json" } })
-      .then((r) => (r.ok ? r.json() : Promise.reject()))
+    alertsReq
       .then((d) => {
         const n = d.statesWithAlerts || 0;
         liveCount.forEach((el) => (el.textContent = n));

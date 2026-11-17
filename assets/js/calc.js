@@ -19,6 +19,13 @@
     out("light").textContent = fmt(people + lanterns);
     out("lightd").textContent = `${people} headlamp${people === 1 ? "" : "s"} + ${lanterns} lantern${lanterns === 1 ? "" : "s"}`;
     out("bags").textContent = fmt(people * state.days);
+    // Close the loop: their numbers on the buy button.
+    const cases = Math.ceil(water / 3.17); // a 24-pack of 16.9 oz bottles ≈ 3.17 gal
+    out("gap").innerHTML = `That's <strong>${fmt(water)} gallons</strong> of water, about ${fmt(cases)} cases of bottled water.`;
+    const priceEl = document.querySelector(".price__amount");
+    const price = priceEl ? priceEl.textContent.trim() : "";
+    const who = people === 1 ? "me" : `my household of ${people}`;
+    out("cta").textContent = `Get the plan for ${who}${price ? " · " + price : ""}`;
     const banks = `${people} phone power bank${people === 1 ? "" : "s"}`;
     out("power").textContent = state.med
       ? `Power: ${banks}, plus a portable power station sized for the medical equipment. Ask your provider about runtime and backup.`

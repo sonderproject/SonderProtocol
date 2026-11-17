@@ -6,7 +6,7 @@ Run:  python3 tools/build_legal.py   (re-run after changing the homepage header 
 from pathlib import Path
 
 CONTACT = "drsv0913@gmail.com"
-UPDATED = "November 15, 2026"
+UPDATED = "November 17, 2026"
 SITE = "Sonder Protocol"
 
 PRIVACY = f"""
@@ -21,7 +21,7 @@ PRIVACY = f"""
 <p>We do not use advertising trackers, analytics cookies or tracking pixels, and we do not ask for an account or password.</p>
 
 <h2>Free tools</h2>
-<p>The Readiness Calculator runs entirely in your browser. The answers you enter are not sent to us or stored. The Live Map loads public data from the National Weather Service and the U.S. Department of Energy. It does not ask for or use your location.</p>
+<p>The Readiness Calculator runs entirely in your browser. The answers you enter are not sent to us or stored. The Live Map loads public data from the National Weather Service and the U.S. Department of Energy. It does not ask for your location. On the homepage, we show weather alerts for your state using an approximate location (state only) that our host estimates from your IP address. We do not store it.</p>
 
 <h2>Third-party services</h2>
 <ul>
