@@ -169,11 +169,6 @@
     }, { threshold: 0.35 });
     ambient.forEach((v) => io.observe(v));
   }
-  // Only one sound video plays at a time; pause it when scrolled away.
-  document.querySelectorAll("video[controls]").forEach((v) => {
-    if (!("IntersectionObserver" in window)) return;
-    new IntersectionObserver(([e]) => { if (!e.isIntersecting && !v.paused) v.pause(); }, { threshold: 0.1 }).observe(v);
-  });
 
   // --- Sticky buy bar: show after the hero, hide at the final CTA ---
   const buybar = document.querySelector("[data-buybar]");
