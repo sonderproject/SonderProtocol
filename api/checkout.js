@@ -7,14 +7,15 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 export async function POST(request) {
   const origin = siteOrigin(request);
 
-  const priceId = process.env.STRIPE_PRICE_ID || PRODUCT.stripePriceId;
+  const onSale = Date.now() < Date.parse(PRODUCT.saleEndsAt);
+  const priceId = process.env.STRIPE_PRICE_ID || (onSale ? PRODUCT.stripePriceId : PRODUCT.regularPriceId);
   const lineItem = priceId
     ? { price: priceId, quantity: 1 }
     : {
         quantity: 1,
         price_data: {
           currency: PRODUCT.currency,
-          unit_amount: PRODUCT.amountCents,
+          unit_amount: onSale ? PRODUCT.amountCents : PRODUCT.regularAmountCents,
           product_data: { name: PRODUCT.name, description: PRODUCT.description },
         },
       };

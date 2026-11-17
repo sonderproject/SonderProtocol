@@ -32,8 +32,8 @@
     const n = [...checks].filter((c) => c.checked).length;
     const pct = Math.round((n / checks.length) * 100);
     const box = root.querySelector(".score");
-    const label = pct >= 80 ? "Ready" : pct >= 40 ? "Partially ready" : "Exposed";
-    box.dataset.score = pct >= 80 ? "ready" : pct >= 40 ? "partial" : "exposed";
+    const label = pct >= 80 ? "Ready" : pct >= 40 ? "Partially ready" : pct > 0 ? "Exposed" : "Tick what you have";
+    box.dataset.score = pct >= 80 ? "ready" : pct >= 40 ? "partial" : pct > 0 ? "exposed" : "none";
     box.querySelector("i").style.setProperty("--p", pct);
     out("score").textContent = `${pct}/100`;
     out("scorelbl").textContent = label;

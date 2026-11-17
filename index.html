@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>The Blackout Kit — Sonder Protocol</title>
-  <meta name="description" content="Protocol 001: The 30-Day Blackout Playbook. The field knowledge seasoned survivalists rely on, in one 42-page household plan. Instant PDF, on sale for $20 (reg. $27)." />
+  <meta name="description" content="Protocol 001: The 30-Day Blackout Playbook. One 42-page household plan: what to buy, how much, and what to do hour by hour. Prepared, not paranoid. Instant PDF, on sale for $20 (reg. $27)." />
   <meta name="theme-color" content="#06080a" />
   <meta property="og:title" content="The 30-Day Blackout Playbook — Sonder Protocol" />
   <meta property="og:description" content="When the power goes out, know exactly what to do. What to buy, how much, and what to do hour by hour. 42-page PDF, on sale for $20." />
@@ -46,7 +46,7 @@
           <a href="/gear">Gear</a>
           <a href="/live" class="nav__live"><span class="dot dot--orange pulse"></span>Live Map</a>
         </nav>
-        <a href="#buy" class="btn btn--primary btn--sm nav__cta">Get It · $20</a>
+        <a href="#buy" class="btn btn--primary btn--sm nav__cta"><span data-price>Get It · $20</span></a>
         <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle>
           <span></span><span></span>
         </button>
@@ -71,20 +71,20 @@
         <div class="hero__copy">
           <p class="pill reveal"><span class="pill__dot"></span>Protocol 001 · The Blackout Kit</p>
           <h1 class="hero__title reveal">When the power goes out,<br /><span class="shimmer">know exactly what to do.</span></h1>
-          <p class="hero__sub reveal">Survivalist field knowledge in one <strong>42-page plan</strong>: what to buy, how much, and what to do hour by hour.</p>
+          <p class="hero__sub reveal">One <strong>42-page household plan</strong>: what to buy, how much, and what to do hour by hour. Prepared, not paranoid.</p>
 
           <ul class="ticks reveal">
             <li>Instant PDF download</li>
             <li>Printable worksheets</li>
-            <li>Survivalist field experience</li>
+            <li>Built for apartments and houses</li>
             <li>Works offline, on paper</li>
           </ul>
 
           <div class="hero__buy reveal">
             <div class="price">
-              <span class="price__was" aria-label="Regular price $27">$27</span>
-              <span class="price__amount">$20</span>
-              <span class="price__note"><span class="sale-tag">Sale · Save $7</span>One-time</span>
+              <span class="price__was" data-was aria-label="Regular price $27">$27</span>
+              <span class="price__amount" data-price>$20</span>
+              <span class="price__note"><span class="sale-tag" data-sale>Sale · Save $7</span>One-time</span>
             </div>
             <form action="/api/checkout" method="POST" class="hero__form">
               <button type="submit" class="btn btn--primary btn--lg shine">Get the Kit <span class="btn__arrow">→</span></button>
@@ -185,9 +185,9 @@
               <label><input type="checkbox" data-chk />A written family plan</label>
             </div>
 
-            <div class="score" data-score="0">
+            <div class="score" data-score="none">
               <div class="score__bar"><i style="--p:0"></i></div>
-              <p><strong data-out="score">0/100</strong> <span data-out="scorelbl">Exposed</span></p>
+              <p><strong data-out="score">0/100</strong> <span data-out="scorelbl">Tick what you have</span></p>
             </div>
             <a href="#buy" class="btn btn--primary btn--lg shine calc__cta">Get the plan for my household <span class="btn__arrow">→</span></a>
             <p class="calc__fine">Based on the CDC's 1 gallon per person per day, plus ~1 quart per pet.</p>
@@ -307,7 +307,7 @@
           <p class="kit__stake">Less than a tank of gas, for the plan that could keep your family safe when it matters most.</p>
           <ol class="flow"><li>Buy</li><li>Instant download</li><li>Print &amp; prepare</li></ol>
           <div class="kit__row">
-            <div class="kit__sum"><span class="kit__label">Total today</span><span class="price__was">$27</span><span class="kit__price">$20</span><span class="kit__label">One-time</span></div>
+            <div class="kit__sum"><span class="kit__label">Total today</span><span class="price__was" data-was>$27</span><span class="kit__price" data-price>$20</span><span class="kit__label">One-time</span></div>
             <form action="/api/checkout" method="POST"><button type="submit" class="btn btn--primary btn--lg shine">Get the Blackout Kit <span class="btn__arrow">→</span></button></form>
           </div>
           <p class="fine">Instant digital download · <a href="/terms">All sales final, no refunds</a></p>
@@ -323,7 +323,7 @@
           <h2 class="block__title reveal">Quick answers.</h2>
         </header>
         <div class="faq__list">
-          <details class="reveal"><summary>Who put this together?</summary><p>Sonder Protocol: emergency-management guidance plus seasoned survivalist field experience, in one plan you can follow under stress.</p></details>
+          <details class="reveal"><summary>Who put this together?</summary><p>Sonder Protocol: emergency-management guidance plus seasoned field experience, turned into one plan a busy household can follow under stress.</p></details>
           <details class="reveal"><summary>What exactly do I get?</summary><p>A 42-page PDF: quantity targets, a buying roadmap, a 7-day menu, hour-by-hour procedures, safety guides, a stay-or-go card, and a quick reference.<span data-bonus-only> Plus the free Buy List: budget kits, quantities, and a printable shopping checklist.</span></p></details>
           <details class="reveal"><summary>Does it work for apartments?</summary><p>Yes. It's built for normal homes and apartments.</p></details>
           <details class="reveal"><summary>How do I get it?</summary><p>Instant download right after checkout. Your link stays active for 14 days.</p></details>
@@ -340,10 +340,10 @@
       <div class="container cta__inner reveal">
         <p class="pill"><span class="pill__dot"></span>Protocol 001 · Available now</p>
         <h2 class="cta__title">Don't wait for <span class="shimmer">the outage.</span></h2>
-        <p class="cta__stake">$20 is a small price for a plan that could save your family's life.</p>
+        <p class="cta__stake"><span data-price>$20</span> is a small price for a plan that could save your family's life.</p>
         <p class="sale-line" data-sale><span class="dot dot--orange pulse"></span>Sale price <s>$27</s> $20 · ends in <strong data-sale-countdown>--</strong></p>
         <form action="/api/checkout" method="POST" class="cta__form">
-          <button type="submit" class="btn btn--primary btn--lg shine">Get the Blackout Kit · $20 <span class="btn__arrow">→</span></button>
+          <button type="submit" class="btn btn--primary btn--lg shine"><span data-price>Get the Blackout Kit · $20</span> <span class="btn__arrow">→</span></button>
         </form>
         <p class="fine">42-page Playbook<span data-bonus-only> + free Buy List</span> · Instant download · <a href="/terms">All sales final</a></p>
         <p class="next">Coming next <span>002 Water &amp; Supplies</span><span>003 Urban Survival</span><span>004 Extended Grid-Down</span></p>
@@ -357,10 +357,10 @@
     <div class="buybar__inner">
       <div class="buybar__info">
         <span class="buybar__name">The Blackout Kit</span>
-        <span class="buybar__meta">Playbook<span data-bonus-only> + free Buy List</span> · <s>$27</s> $20 · Final sale</span>
+        <span class="buybar__meta">Playbook<span data-bonus-only> + free Buy List</span> · <s data-was>$27</s> <span data-price>$20</span> · Final sale</span>
       </div>
       <form action="/api/checkout" method="POST">
-        <button type="submit" class="btn btn--primary btn--sm" tabindex="-1">Get It · $20</button>
+        <button type="submit" class="btn btn--primary btn--sm" tabindex="-1"><span data-price>Get It · $20</span></button>
       </form>
     </div>
   </div>
@@ -391,9 +391,8 @@
       </nav>
       <div class="footer__col">
         <h4>Follow</h4>
-        <a href="#" aria-label="Sonder Protocol on Instagram (coming soon)">Instagram</a>
-        <a href="#" aria-label="Sonder Protocol on TikTok (coming soon)">TikTok</a>
-        <a href="#" aria-label="Sonder Protocol on YouTube (coming soon)">YouTube</a>
+        <a href="https://www.instagram.com/sonderprotocol/" target="_blank" rel="noopener" aria-label="Sonder Protocol on Instagram">Instagram</a>
+        <a href="https://www.tiktok.com/@sonderprotocol" target="_blank" rel="noopener" aria-label="Sonder Protocol on TikTok">TikTok</a>
       </div>
     </div>
     <div class="footer__mark" aria-hidden="true">SONDER PROTOCOL</div>

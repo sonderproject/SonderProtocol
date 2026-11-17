@@ -75,11 +75,16 @@
   const SALE_END = new Date("2026-11-30T23:59:59-08:00");
   const saleEls = document.querySelectorAll("[data-sale]");
   const countdowns = document.querySelectorAll("[data-sale-countdown]");
-  if (saleEls.length) {
+  if (saleEls.length || document.querySelector("[data-price]")) {
     const pad = (n) => String(n).padStart(2, "0");
     const tickSale = () => {
       const ms = SALE_END - Date.now();
-      if (ms <= 0) { saleEls.forEach((el) => (el.hidden = true)); return false; }
+      if (ms <= 0) {
+        saleEls.forEach((el) => (el.hidden = true));
+        document.querySelectorAll("[data-was]").forEach((el) => (el.hidden = true));
+        document.querySelectorAll("[data-price]").forEach((el) => (el.textContent = el.textContent.replace("$20", "$27")));
+        return false;
+      }
       const d = Math.floor(ms / 864e5), h = Math.floor(ms / 36e5) % 24, m = Math.floor(ms / 6e4) % 60, s = Math.floor(ms / 1e3) % 60;
       const text = d > 0 ? `${d}d ${pad(h)}h ${pad(m)}m` : `${pad(h)}:${pad(m)}:${pad(s)}`;
       countdowns.forEach((el) => (el.textContent = text));

@@ -18,4 +18,14 @@
   const base = "/api/download?session_id=" + encodeURIComponent(sessionId);
   document.querySelector("[data-download]").href = base;
   document.querySelector("[data-download-bonus]").href = base + "&file=bonus";
+
+  const link = location.href;
+  const msg = document.querySelector("[data-copy-msg]");
+  document.querySelector("[data-email-link]").href =
+    "mailto:?subject=" + encodeURIComponent("My Blackout Kit download link") +
+    "&body=" + encodeURIComponent("Download the Playbook and Buy List here (works for 14 days):\n" + link);
+  document.querySelector("[data-copy-link]").addEventListener("click", async () => {
+    try { await navigator.clipboard.writeText(link); msg.textContent = "Link copied. Paste it somewhere safe."; }
+    catch { window.prompt("Copy your download link:", link); }
+  });
 })();

@@ -670,6 +670,10 @@ html[data-bonus="off"] .kit { grid-template-columns: 1fr; }
 .access { min-height: 100svh; display: grid; place-items: center; padding-top: 120px; }
 .access .cta__title { font-size: clamp(2.4rem, 5.4vw, 4.4rem); }
 .access__btns { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 40px; }
+.access__save { margin: 34px auto 0; max-width: 520px; padding: 18px 20px; border-radius: var(--r-md); border: 1px solid rgba(255, 122, 26, 0.45); background: rgba(255, 122, 26, 0.07); }
+.access__save-title { font-size: 0.92rem; color: var(--text); }
+.access__save-btns { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+.access__save-msg { min-height: 1.2em; margin-top: 10px; font-size: 0.72rem; color: var(--teal-soft); }
 .access__notes { list-style: none; margin: 44px auto 0; padding: 26px 0 0; max-width: 520px; display: grid; gap: 10px; border-top: 1px solid var(--line); font-size: 0.74rem; color: var(--text-3); }
 
 /* ==========================================================================
@@ -713,9 +717,13 @@ html[data-bonus="off"] .kit { grid-template-columns: 1fr; }
   .brand__sep { margin: 0 9px; }
   .brand__sub { font-size: 0.62rem; letter-spacing: 0.24em; }
   .nav__inner { height: 64px; gap: 12px; }
-  .hero { padding: 124px 0 72px; }
-  .hero__copy .pill { margin-bottom: 24px; font-size: 0.6rem; letter-spacing: 0.22em; }
-  .ticks { grid-template-columns: 1fr; }
+  .hero { padding: 108px 0 64px; }
+  .hero__copy .pill { margin-bottom: 16px; font-size: 0.6rem; letter-spacing: 0.22em; }
+  .hero__title { font-size: 2.2rem; }
+  .hero__sub { margin-top: 14px; font-size: 0.98rem; }
+  .ticks { grid-template-columns: repeat(2, minmax(0, max-content)); gap: 8px 18px; margin-top: 16px; }
+  .ticks li { font-size: 0.82rem; }
+  .hero__buy { margin-top: 20px; }
   .hero__buy { gap: 18px; }
   .hero__form, .hero__form .btn, .cta__form .btn, .kit__row form, .kit__row .btn { width: 100%; }
   .price__amount { font-size: 3rem; }
