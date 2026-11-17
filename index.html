@@ -93,7 +93,7 @@
           </div>
           <p class="bonus-badge reveal" data-bonus-only><span class="bonus-badge__tag">+ Free bonus</span>The Sonder Buy List: budget kits from $100, with links</p>
           <p class="sale-line reveal" data-sale><span class="dot dot--orange pulse"></span>Sale ends in <strong data-sale-countdown>--</strong>. Then back to $27.</p>
-          <p class="fine" data-checkout-msg aria-live="polite">Secure checkout by Stripe · Apple Pay · Instant digital download</p>
+          <p class="fine" data-checkout-msg aria-live="polite">Secure checkout by Stripe · Instant digital download</p>
         </div>
 
         <figure class="hero__media reveal">
@@ -256,11 +256,30 @@
       </div>
     </section>
 
+    <!-- ============ WATCH (30s spokesperson video, tap to play) ============ -->
+    <section class="block block--tight" id="watch">
+      <div class="container watch">
+        <header class="watch__copy">
+          <p class="label reveal"><span class="label__n">▶</span><i class="label__rule"></i><span>Watch · 30 seconds</span></p>
+          <h2 class="block__title reveal">Prepared,<br /><span class="muted">not paranoid.</span></h2>
+          <p class="watch__sub reveal">A real household plan, explained in half a minute. Captions on, so it works with the sound off.</p>
+        </header>
+        <figure class="watch__player reveal">
+          <video controls playsinline preload="none" poster="assets/video/blackout-kit-poster.jpg" width="720" height="1280" aria-label="30-second video: what's in the Blackout Kit">
+            <source src="assets/video/blackout-kit-30s.mp4" type="video/mp4" />
+          </video>
+        </figure>
+      </div>
+    </section>
+
     <!-- ============ 03 RIGHT NOW (live alerts) ============ -->
     <section class="block block--tight" id="now">
       <div class="container">
         <a class="panel panel--dark now reveal" href="/live">
           <div class="aurora aurora--soft" aria-hidden="true"></div>
+          <div class="now__media" aria-hidden="true">
+            <video data-ambient muted loop playsinline preload="none" poster="assets/video/outage-scene.jpg" width="960" height="540" data-src="assets/video/outage-scene.mp4"></video>
+          </div>
           <div class="now__head">
             <p class="label"><span class="label__n">03</span><i class="label__rule"></i><span>Right Now</span></p>
             <h2 class="block__title">Outages are getting longer.<br /><span class="muted">Most homes have no plan.</span></h2>

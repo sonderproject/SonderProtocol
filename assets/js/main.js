@@ -155,6 +155,26 @@
       });
   }
 
+  // --- Ambient video: muted loop that loads and plays only while on screen ---
+  const saveData = navigator.connection && navigator.connection.saveData;
+  const ambient = document.querySelectorAll("video[data-ambient]");
+  if (ambient.length && !calm && !saveData && "IntersectionObserver" in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(({ target: v, isIntersecting }) => {
+        if (isIntersecting) {
+          if (!v.src) { v.src = v.dataset.src; v.load(); }
+          v.play().catch(() => {});
+        } else if (!v.paused) v.pause();
+      });
+    }, { threshold: 0.35 });
+    ambient.forEach((v) => io.observe(v));
+  }
+  // Only one sound video plays at a time; pause it when scrolled away.
+  document.querySelectorAll("video[controls]").forEach((v) => {
+    if (!("IntersectionObserver" in window)) return;
+    new IntersectionObserver(([e]) => { if (!e.isIntersecting && !v.paused) v.pause(); }, { threshold: 0.1 }).observe(v);
+  });
+
   // --- Sticky buy bar: show after the hero, hide at the final CTA ---
   const buybar = document.querySelector("[data-buybar]");
   const hero = document.querySelector("[data-hero]");
